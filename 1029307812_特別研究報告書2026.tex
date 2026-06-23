@@ -16,7 +16,7 @@
 %%% 著者氏名 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \author{三宅}{優希}             % {姓}{名}
 %%% 提出日 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\submissiondate{2024}{6}{29}    % {年}{月}{日}
+\submissiondate{2026}{6}{29}    % {年}{月}{日}
 %%% 背表紙の幅 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setlength{\wdspine}{15mm}
 %%% 背表紙の出力枚数 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -26,7 +26,7 @@
   本研究では，
 }
 %%% パッケージの読み込みや自分用のマクロの定義 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{amsmath,amssymb}
+\usepackage{amsmath,amssymb,bm}
 \newcommand{\rme}{\mathrm{e}}
 
 %%% 出力の制御 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -36,7 +36,6 @@
 
 %%% 末尾に提出用摘要を出力しない場合，次の行をコメントアウトして下さい．
 \outputabstractforsubmissiontrue
-
 
 %%% ampbt.cls では表紙等の作成のために geometry パッケージを使用しているため，本文
 %%% のレイアウトを変えるために \usepackage[...]{geometry} とすると Option clash が
@@ -57,9 +56,385 @@
   \section{序論}
   本研究では，
 
-  \section{数理モデルの構築}
-
   \section{シミュレーション手法}
+  本研究では，周期的に幅が変化する2次元チャネル内を運動する誘電性棒状粒子を考え
+  る．チャネルの周期を$L$とし，流路領域を
+  \begin{equation}
+    \Omega=\{(x,y)\mid -\omega(x)\leq y\leq \omega(x)\}
+  \end{equation}
+  とする．棒状粒子の状態は，重心位置$\bm{X}=(x,y)^\top$と，棒の長軸方向を表す
+  角度$\phi$によって表す．また，棒の単位方向ベクトルを
+  $\bm{n}=(\cos\phi,\sin\phi)^\top$とする．壁から受ける反発力とそのトルクを計算す
+  るため，棒を重心と，そこから左右対称に等間隔に置いた$2m$個の点を合わせた
+  $2m+1$個の代表点で近似する．
+
+  \subsection{Langevin方程式}
+  対象とする粒子は水中の微小な棒状粒子であり，慣性の緩和時間は観測する時間スケー
+  ルに比べて十分短い．したがって本研究では過減衰近似を用い，重心の並進運動と角度
+  の回転運動を次のLangevin方程式で記述する：
+  \begin{equation}
+    \begin{cases}
+      \displaystyle
+      \frac{d\bm{X}}{dt}
+      =\mathbb{R}(\phi)\beta\mathbb{D}\mathbb{R}(\phi)^{-1}\bm{F}
+      +\mathbb{R}(\phi)\bm{\xi}(t), \\[6pt]
+      \displaystyle
+      \frac{d\phi}{dt}
+      =\beta D_r\tau+\xi_r(t).
+    \end{cases}
+    \label{eq:langevin}
+  \end{equation}
+  ここで，$\beta=(k_BT)^{-1}$であり，
+  \begin{equation}
+    \mathbb{R}(\phi)=
+    \begin{pmatrix}
+      \cos\phi & -\sin\phi \\
+      \sin\phi & \cos\phi
+    \end{pmatrix},\qquad
+    \mathbb{D}=
+    \begin{pmatrix}
+      D_{\parallel} & 0         \\
+      0             & D_{\perp}
+    \end{pmatrix}
+  \end{equation}
+  とした．$D_{\parallel}$と$D_{\perp}$はそれぞれ棒の長軸方向および長軸に垂直な方向
+  の並進拡散係数，$D_r$は回転拡散係数である．
+  $\bm{\xi}(t)$および$\xi_r(t)$は平均0の白色雑音であり，
+  \begin{align}
+    \langle \bm{\xi}(t)\rangle & =\bm{0},                  &
+    \langle \bm{\xi}(t)\bm{\xi}(t')^\top\rangle
+                               & =2\mathbb{D}\delta(t-t'),   \\
+    \langle \xi_r(t)\rangle    & =0,                       &
+    \langle \xi_r(t)\xi_r(t')\rangle
+                               & =2D_r\delta(t-t')
+  \end{align}
+  を満たすものとする．
+
+  棒状粒子に働く力$\bm{F}$は，チャネル方向に加える一定外力$\bm{f}=f\bm{e}_x$と，
+  壁から各代表点が受ける反発力$\bm{f}^{\mathrm{rep}}_j$の和として
+  \begin{equation}
+    \bm{F}=\bm{f}+\sum_{j=-m}^{m}\bm{f}^{\mathrm{rep}}_j
+    \label{eq:force}
+  \end{equation}
+  と書く．一方，トルク$\tau$は壁からの反発力によるトルク
+  $\tau_{\mathrm{rep}}$と，外部電場によるトルク$\tau_E$の和である：
+  \begin{equation}
+    \tau=\tau_{\mathrm{rep}}+\tau_E .
+  \end{equation}
+  代表点の間隔を$l/(2m)$とすると，壁から受けるトルクは
+  \begin{equation}
+    \tau_{\mathrm{rep}}
+    =
+    \frac{l}{2m}\,
+    \bm{n}\times
+    \left\{
+    \sum_{k=1}^{m}
+    k\left(\bm{f}^{\mathrm{rep}}_k-\bm{f}^{\mathrm{rep}}_{-k}\right)
+    \right\}
+    \label{eq:rep-torque}
+  \end{equation}
+  で与える．ここで，2次元ベクトルの外積は面外方向のスカラー成分を表す．電場は
+  $y$方向に加えるものとし，永久双極子モーメント$p\bm{n}$と分極異方性
+  $\Delta\alpha=\alpha_{\parallel}-\alpha_{\perp}$を用いると，電場によるポテンシャル
+  から
+  \begin{equation}
+    \tau_E(\phi)
+    =
+    pE\cos\phi
+    \left(
+    1+\Delta\alpha\frac{E}{p}\sin\phi
+    \right)
+    \label{eq:electric-torque}
+  \end{equation}
+  を得る．
+
+  \subsection{拡散係数}
+  棒状粒子の拡散係数には，円柱状粒子に対するTiradoとGarcia de la Torreの近似式
+  \cite{tirado1979,tirado1980}を用いる．棒の長さを$l$，直径を$d$，アスペクト比を
+  $p=l/d$とすると，バルク中での並進および回転拡散係数は
+  \begin{align}
+    D_{\parallel}(l)
+     & =
+    \frac{k_BT}{2\pi\eta l}
+    \left(\ln p+\nu_{\parallel}\right), \\
+    D_{\perp}(l)
+     & =
+    \frac{k_BT}{4\pi\eta l}
+    \left(\ln p+\nu_{\perp}\right),     \\
+    D_r(l)
+     & =
+    \frac{3k_BT}{\pi\eta l^3}
+    \left(\ln p+\delta_{\perp}\right)
+  \end{align}
+  と表される．ただし，
+  \begin{align}
+    \nu_{\parallel}
+     & =-0.207+\frac{0.980}{p}-\frac{0.133}{p^2}, \\
+    \nu_{\perp}
+     & =0.839+\frac{0.185}{p}+\frac{0.233}{p^2},  \\
+    \delta_{\perp}
+     & =-0.630+\frac{0.917}{p}-\frac{0.050}{p^2}
+  \end{align}
+  である．本研究では，先行研究の実験でチャネル内の局所拡散係数に約2倍の異方性が
+  観測されていること\cite{yang2019}に基づき，並進拡散係数の比を
+  \begin{equation}
+    D_{\perp}= \frac{1}{2} D_{\parallel}
+    \label{eq:diffusion-ratio}
+  \end{equation}
+  として扱う．この仮定のもとで，実験室座標系での並進拡散テンソルは
+  \begin{align}
+    \mathbb{D}_{\mathrm{lab}}(\phi)
+     & =
+    \mathbb{R}(\phi)\mathbb{D}\mathbb{R}(\phi)^{-1} \notag \\
+     & =
+    \frac{D_{\parallel}}{2}
+    \begin{pmatrix}
+      3-\cos 2\phi & -\sin 2\phi  \\
+      -\sin 2\phi  & 3+\cos 2\phi
+    \end{pmatrix}
+    \label{eq:diffusion-lab}
+  \end{align}
+  と簡略化できる．この式により，棒の角度$\phi$に応じて，外力に対する移動度と熱揺
+  らぎの大きさが変化する．
+
+  \subsection{無次元化}
+  数値計算では，長さをチャネル周期$L$で，時間を基準拡散係数$D_0$を用いて
+  $L^2/D_0$で無次元化する．すなわち，
+  \begin{equation}
+    \widetilde{\bm{X}}=\frac{\bm{X}}{L},\qquad
+    \widetilde{t}=\frac{D_0}{L^2}t
+  \end{equation}
+  とする．また，
+  \begin{equation}
+    \widetilde{\mathbb{D}}=\frac{\mathbb{D}}{D_0},\qquad
+    \widetilde{D}_r=\frac{D_rL^2}{D_0},\qquad
+    \widetilde{\bm{F}}=\beta L\bm{F},\qquad
+    \widetilde{\tau}=\beta\tau
+  \end{equation}
+  と定義する．以降では表記を簡単にするためチルダを省略する．標準Wiener過程の増分
+  $d\bm{W}$および$dW_r$を用いると，式\eqref{eq:langevin}は
+  \begin{equation}
+    \begin{cases}
+      d\bm{X}
+      =
+      \mathbb{D}_{\mathrm{lab}}(\phi)\bm{F}\,dt
+      +\mathbb{R}(\phi)\sqrt{2\mathbb{D}}\,d\bm{W}, \\[4pt]
+      d\phi
+      =
+      D_r\tau\,dt+\sqrt{2D_r}\,dW_r
+    \end{cases}
+    \label{eq:dimensionless-sde}
+  \end{equation}
+  となる．本研究の数値シミュレーションは，この無次元化された確率微分方程式に対し
+  て行う．
+
+  \subsection{数値積分}
+  式\eqref{eq:dimensionless-sde}を時間刻み$\Delta t$で離散化する．予測子・修正子
+  法を用いる理由は，\underline{\hspace{10zw}}．
+
+  時刻$t_n$における状態を$s_n=(\bm{X}_n,\phi_n)$とする．各時間刻みで，
+  $\bm{\eta}_t=(\eta_x,\eta_y)^\top$と$\eta_r$を，平均0，分散1の独立な標準正規乱数
+  として生成する．まず現在状態$s_n$から予測点$s^\ast=(\bm{X}^\ast,\phi^\ast)$を
+  \begin{align}
+    \bm{X}^\ast
+     & =
+    \bm{X}_n
+    +\mathbb{D}_{\mathrm{lab}}(\phi_n)\bm{F}(s_n)\Delta t
+    +\mathbb{R}(\phi_n)\sqrt{2\mathbb{D}\Delta t}\,\bm{\eta}_t,
+    \label{eq:predictor-x} \\
+    \phi^\ast
+     & =
+    \phi_n
+    +D_r\tau(s_n)\Delta t
+    +\sqrt{2D_r\Delta t}\,\eta_r
+    \label{eq:predictor-phi}
+  \end{align}
+  により求める．次に，予測点$s^\ast$で力，トルク，拡散テンソル，および並進雑音の
+  回転行列を再評価し，同じ乱数$\bm{\eta}_t,\eta_r$を用いて
+  \begin{align}
+    \bm{X}_{n+1}
+     & =
+    \bm{X}_n
+    +\mathbb{D}_{\mathrm{lab}}(\phi^\ast)\bm{F}(s^\ast)\Delta t
+    +\mathbb{R}(\phi^\ast)\sqrt{2\mathbb{D}\Delta t}\,\bm{\eta}_t,
+    \label{eq:corrector-x} \\
+    \phi_{n+1}
+     & =
+    \phi_n
+    +D_r\tau(s^\ast)\Delta t
+    +\sqrt{2D_r\Delta t}\,\eta_r
+    \label{eq:corrector-phi}
+  \end{align}
+  と更新する．
+
+  \subsection{壁面からの反発力と境界処理}
+  壁面は，壁上に等間隔に配置したサンプリング点によって表す．粒子代表点
+  $\bm{r}_j$と壁点$\bm{r}_k$の距離を$r=|\bm{r}_j-\bm{r}_k|$とし，壁からの短距離反発
+  をWCAポテンシャル
+  \begin{equation}
+    U_{\mathrm{WCA}}(r)=
+    \begin{cases}
+      \displaystyle
+      4\epsilon
+      \left[
+        \left(\frac{\sigma}{r}\right)^{12}
+        -
+        \left(\frac{\sigma}{r}\right)^6
+        \right]
+      +\epsilon,
+       & r<2^{1/6}\sigma,    \\[8pt]
+      0,
+       & r\geq 2^{1/6}\sigma
+    \end{cases}
+    \label{eq:wca}
+  \end{equation}
+  でモデル化する．したがって，代表点$j$が受ける反発力は
+  \begin{equation}
+    \bm{f}^{\mathrm{rep}}_j
+    =
+    \sum_{r_{jk}<2^{1/6}\sigma}
+    \frac{24\epsilon}{r_{jk}^2}
+    s_{jk}^6
+    \left(2s_{jk}^6-1\right)
+    \bm{d}_{jk}
+    \label{eq:wca-force}
+  \end{equation}
+  と書ける．ここで，
+  $\bm{d}_{jk}=\bm{r}_j-\bm{r}_k$，
+  $r_{jk}=|\bm{d}_{jk}|$，
+  $s_{jk}^2=\sigma^2/r_{jk}^2$，
+  $s_{jk}^6=(s_{jk}^2)^3$である．WCA力は$r\to 0$で発散するため，実装では1つの
+  代表点と1つの壁点の組から生じる力の大きさに上限を設ける．この上限値は
+  シミュレーション設定で述べる．
+
+  反発力を用いても，有限の時間刻みでは予測点や修正子で得た候補点が流路外に出るこ
+  とがある．そこで本研究では，境界外に出た候補状態を，現在位置側の壁に対して鏡映
+  することで境界条件を満たすよう補正する．候補重心を
+  $\bm{X}^q=(x^q,y^q)$とすると，$y^q>\omega(x^q)$なら上壁，
+  $y^q<-\omega(x^q)$なら下壁の外側にあると判定する．上下壁を
+  $\sigma_w\in\{+1,-1\}$を用いて
+  \begin{equation}
+    \bm{b}_{\sigma_w}(u)=\left(u,\sigma_w\omega(u)\right)
+  \end{equation}
+  と表す．候補点から壁へ下ろした垂線の足の$x$座標$u$は，
+  \begin{equation}
+    (u-x^q)+\omega'(u)\left\{\omega(u)-\sigma_w y^q\right\}=0
+    \label{eq:foot-condition}
+  \end{equation}
+  をNewton法で解いて求める．垂線の足を
+  $\bm{B}=(u,\sigma_w\omega(u))$とすれば，鏡映後の重心は
+  \begin{equation}
+    \widehat{\bm{X}}^q=2\bm{B}-\bm{X}^q
+    \label{eq:reflected-position}
+  \end{equation}
+  である．また，壁の接線角
+  \begin{equation}
+    \theta=\arctan\left(\sigma_w\omega'(u)\right)
+  \end{equation}
+  に対して，棒の角度は
+  \begin{equation}
+    \widehat{\phi}^q=2\theta-\phi^q
+    \label{eq:reflected-angle}
+  \end{equation}
+  と補正する．予測点$s^\ast$が境界外にある場合は，この鏡映補正を適用した状態で
+  修正子段階の力と拡散テンソルを評価する．さらに，修正子で得た最終候補状態につい
+  ても保存前に同じ補正を行う．
+
+  \section{シミュレーション設定}
+  本研究では，チャネル周期を$L=1$とし，壁形状を
+  \begin{equation}
+    y=\pm\omega(x),\qquad
+    \omega(x)=\sin(2\pi x)+0.25\sin(4\pi x)+1.12
+    \label{eq:channel-shape}
+  \end{equation}
+  とした．壁との相互作用に用いるWCAポテンシャルのパラメータ，時間刻み，および壁
+  点の配置は
+  \begin{equation}
+    \epsilon=2,\qquad
+    \sigma=8.0\times 10^{-3},\qquad
+    \Delta t=4.0\times 10^{-7}
+  \end{equation}
+  とした．壁点は$0.25\sigma$間隔で配置し，粒子上の代表点は$0.8\sigma$間隔で配置
+  した．WCA反発力については，1つの代表点と1つの壁点から受ける反発力の大きさを
+  $2.5\times 10^4$以下に制限した．
+
+  拡散係数の無次元化に用いる基準拡散係数$D_0$は，基準長
+  \begin{equation}
+    \tilde{l}_0=6\times0.8\sigma
+  \end{equation}
+  の棒に対して定める．$p_0=40\tilde{l}_0$として，
+  \begin{equation}
+    D_0=
+    \frac{k_BT}{8\pi\eta L\tilde{l}_0}
+    \left(
+    3\ln p_0+2\nu_{\parallel,0}+\nu_{\perp,0}
+    \right)
+  \end{equation}
+  を用いた．ここで，$\nu_{\parallel,0}$および$\nu_{\perp,0}$は$p=p_0$における
+  $\nu_{\parallel}$および$\nu_{\perp}$の値である．また，先行研究の設定に合わせ，
+  各棒長に対して$p=40\tilde{l}$とした．
+
+  探索する棒長は，粒子代表点数と対応させて
+  \begin{align}
+    l
+                                  & =
+    2\times0.8\sigma\quad (m=1),  &
+    l
+                                  & =
+    8\times0.8\sigma\quad (m=4),\notag   \\
+    l
+                                  & =
+    16\times0.8\sigma\quad (m=8), &
+    l
+                                  & =
+    30\times0.8\sigma\quad (m=15),\notag \\
+    l
+                                  & =
+    60\times0.8\sigma\quad (m=30)
+  \end{align}
+  とした．外部電場に関する無次元パラメータは
+  \begin{equation}
+    \beta pE
+    =
+    \frac14,\frac12,\frac34,1,\frac32,2
+  \end{equation}
+  および
+  \begin{equation}
+    \Delta\alpha\frac{E}{p}
+    =
+    \frac14,\frac12,\frac34,1,\frac32,2
+  \end{equation}
+  を用いた．また，$x$方向に加える一定外力$\bm{f}=f\bm{e}_x$については
+  \begin{equation}
+    f=
+    1,2,3,4,5,6,7,8,9,10,
+    20,30,40,50,60,70,80,90,100
+  \end{equation}
+  を調べた．
+
+  各パラメータの組に対して，初期重心位置は
+  $x_0\in(-0.1,0.7)$および
+  $y_0\in(-\omega(x_0)+l/2,\omega(x_0)-l/2)$からランダムに選び，初期角度は
+  $\phi_0\in(0,2\pi)$からランダムに選んだ．その後，粒子が初めて
+  $x=x_0+L$または$x=x_0-L$に到達するまでの時間を初通過時間$T$として記録した．
+  この試行を各条件で$N=3.0\times10^4$回行い，$T$の1次および2次モーメント
+  \begin{equation}
+    T_1=\langle T\rangle,\qquad
+    T_2=\langle T^2\rangle
+  \end{equation}
+  を求めた．平均速度$v$と有効拡散係数$D_{\mathrm{eff}}$は
+  \begin{equation}
+    v=\frac{L}{T_1},\qquad
+    D_{\mathrm{eff}}
+    =
+    \frac{L^2}{2}
+    \left(
+    \frac{T_2-T_1^2}{T_1^3}
+    \right)
+  \end{equation}
+  により算出した．
+
+  \section{シミュレーション結果}
 
   \section{結論}
 
@@ -71,12 +446,21 @@
   \addcontentsline{toc}{section}{\refname} % 目次に参考文献を追加する．
   % chapter使用時は削除すること．
   \begin{thebibliography}{10}
-    \bibitem{polya1945}
-    G.~Polya, \textit{How to solve it: a new aspect of mathematical method},
-    Princeton University Press, Princeton, 1945.
-    \bibitem{suuri2010}
-    数理花子，数理モデルとその妥当性の検討，
-    京都大学工学部情報学科数理工学コース特別研究報告，2010．
+    \bibitem{yang2019}
+    X.~Yang, Q.~Zhu, C.~Liu, W.~Wang, Y.~Li, F.~Marchesoni, P.~Hänggi,
+    and H.~Zhang,
+    \textit{Diffusion of colloidal rods in corrugated channels},
+    arXiv:1902.03059, 2019.
+    \bibitem{tirado1979}
+    M.~M. Tirado and J.~Garcia de la Torre,
+    \textit{Translational friction coefficients of rigid, symmetric top
+      macromolecules. Application to circular cylinders},
+    Journal of Chemical Physics, 71, 2581, 1979.
+    \bibitem{tirado1980}
+    M.~M. Tirado and J.~Garcia de la Torre,
+    \textit{Rotational dynamics of rigid, symmetric top macromolecules.
+      Application to circular cylinders},
+    Journal of Chemical Physics, 73, 1986, 1980.
   \end{thebibliography}
   %%% BibTeX 等を用いる場合は，上の thebibliography 環境を消してここに該当コードを
   %%% 挿入すること．
@@ -84,12 +468,6 @@
   %% \bibliography{...}
 
   %%% 付録 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  %%% 付録は不要ならば削除してよい．
-  \appendix
-
-  \section{付録}
-  これは意味のない引用です\cite{polya1945}．
-
   %%% 本文ここまで %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \fi
 \ifoutputcover

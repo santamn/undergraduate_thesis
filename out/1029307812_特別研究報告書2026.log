@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.2-u2.02-251130-2.6 (utf8.euc) (TeX Live 2026) (preloaded format=platex 2026.4.28)  23 JUN 2026 16:48
+This is e-upTeX, Version 3.141592653-p4.1.2-u2.02-251130-2.6 (utf8.euc) (TeX Live 2026) (preloaded format=platex 2026.4.28)  23 JUN 2026 17:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -165,7 +165,17 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-dvipdfmx.def
+)) (/usr/local/texlive/2026/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2025/10/21 v1.2g Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup7
+\symboldletters=\mathgroup8
+\symboldsymbols=\mathgroup9
+Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
+\symboldmincho=\mathgroup10
+Package bm Info: No bold for \U/msa/m/n, using \pmb.
+Package bm Info: No bold for \U/msb/m/n, using \pmb.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
+) (/usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-dvipdfmx.def
 File: l3backend-dvipdfmx.def 2025-10-09 L3 backend support: dvipdfmx
 \g__graphics_track_int=\count299
 \g__pdfannot_backend_int=\count300
@@ -173,24 +183,24 @@ File: l3backend-dvipdfmx.def 2025-10-09 L3 backend support: dvipdfmx
 ) (out/1029307812_特別研究報告書2026.aux)
 \openout1 = `1029307812_特別研究報告書2026.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 48.
+LaTeX Font Info:    ... okay on input line 48.
 *geometry* detected driver: dvipdfm
 *geometry* verbose mode - [ preamble ] result:
 * driver: dvipdfm
@@ -256,67 +266,103 @@ LaTeX Font Info:    ... okay on input line 49.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Calculating math sizes for size <10.95001> on input line 52.
+LaTeX Font Info:    Calculating math sizes for size <10.95001> on input line 51.
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.475> not available
-(Font)              size <5> substituted on input line 52.
+(Font)              size <5> substituted on input line 51.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <5.475> not available
-(Font)              size <5> substituted on input line 52.
+(Font)              size <5> substituted on input line 51.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.475> not available
-(Font)              size <5> substituted on input line 52.
+(Font)              size <5> substituted on input line 51.
 
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 7.36601pt on input line 52.
+(Font)              scaled to size 7.36601pt on input line 51.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 5.26146pt on input line 52.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 52.
+(Font)              scaled to size 5.26146pt on input line 51.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 51.
 (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 52.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 51.
 (/usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <5.475> not available
+(Font)              size <5> substituted on input line 51.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <5.475> not available
+(Font)              size <5> substituted on input line 51.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <5.475> not available
+(Font)              size <5> substituted on input line 51.
+
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 10.52293pt on input line 51.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 7.36601pt on input line 51.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 5.26146pt on input line 51.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 15.15302pt on input line 52.
+(Font)              scaled to size 15.15302pt on input line 51.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 15.15302pt on input line 52.
+(Font)              scaled to size 15.15302pt on input line 51.
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <15.768> not available
-(Font)              size <14.4> substituted on input line 52.
+(Font)              size <14.4> substituted on input line 51.
 
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 18.18364pt on input line 52.
+(Font)              scaled to size 18.18364pt on input line 51.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 18.18364pt on input line 52.
+(Font)              scaled to size 18.18364pt on input line 51.
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <18.92162> not available
-(Font)              size <17.28> substituted on input line 52.
+(Font)              size <17.28> substituted on input line 51.
 
-LaTeX Font Info:    Calculating math sizes for size <15.768> on input line 52.
+LaTeX Font Info:    Calculating math sizes for size <15.768> on input line 51.
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <15.768> not available
-(Font)              size <14.4> substituted on input line 52.
+(Font)              size <14.4> substituted on input line 51.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <15.768> not available
-(Font)              size <14.4> substituted on input line 52.
+(Font)              size <14.4> substituted on input line 51.
 
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 10.60707pt on input line 52.
+(Font)              scaled to size 10.60707pt on input line 51.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 7.5765pt on input line 52.
+(Font)              scaled to size 7.5765pt on input line 51.
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <15.768> not available
+(Font)              size <14.4> substituted on input line 51.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <15.768> not available
+(Font)              size <14.4> substituted on input line 51.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <15.768> not available
+(Font)              size <14.4> substituted on input line 51.
+
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 15.15302pt on input line 51.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 10.60707pt on input line 51.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 7.5765pt on input line 51.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 21.82458pt on input line 52.
+(Font)              scaled to size 21.82458pt on input line 51.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 21.82458pt on input line 52.
+(Font)              scaled to size 21.82458pt on input line 51.
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <22.71033> not available
-(Font)              size <20.74> substituted on input line 52.
+(Font)              size <20.74> substituted on input line 51.
 
 [1
 
@@ -324,21 +370,17 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <22.71033> not available
 
 ]
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 10.52293pt on input line 53.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 10.52293pt on input line 53.
+(Font)              scaled to size 10.52293pt on input line 52.
 [2
 
 
 
 ]
 LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
-(Font)              scaled to size 15.15302pt on input line 54.
-LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
-(Font)              scaled to size 15.15302pt on input line 54.
+(Font)              scaled to size 15.15302pt on input line 53.
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <15.768> not available
-(Font)              size <14.4> substituted on input line 54.
+(Font)              size <14.4> substituted on input line 53.
 
 (out/1029307812_特別研究報告書2026.toc)
 \tf@toc=\write3
@@ -348,17 +390,34 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <15.768> not available
 
 
 ]
-LaTeX Font Info:    Font shape `JT1/mc/m/it' in size <10.95001> not available
-(Font)              Font shape `JT1/mc/m/n' tried instead on input line 75.
 LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
-(Font)              scaled to size 10.52293pt on input line 75.
-LaTeX Font Info:    Font shape `JY1/mc/m/it' in size <10.95001> not available
-(Font)              Font shape `JY1/mc/m/n' tried instead on input line 75.
+(Font)              scaled to size 12.62753pt on input line 71.
 LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
-(Font)              scaled to size 10.52293pt on input line 75.
+(Font)              scaled to size 12.62753pt on input line 71.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <13.14001> not available
+(Font)              size <12> substituted on input line 71.
+
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 12.62753pt on input line 71.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 12.62753pt on input line 71.
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <13.14001> not available
+(Font)              size <12> substituted on input line 71.
+
 [1
 
-] [2
+] [2] [3] [4] [5]
+LaTeX Font Info:    Font shape `JT1/mc/m/it' in size <10.95001> not available
+(Font)              Font shape `JT1/mc/m/n' tried instead on input line 452.
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 10.52293pt on input line 452.
+LaTeX Font Info:    Font shape `JY1/mc/m/it' in size <10.95001> not available
+(Font)              Font shape `JY1/mc/m/n' tried instead on input line 452.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 10.52293pt on input line 452.
+[6] [7
 
 ] (out/1029307812_特別研究報告書2026.aux)
  ***********
@@ -372,12 +431,12 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 3068 strings out of 468171
- 44644 string characters out of 5434472
- 453348 words of memory out of 5000000
- 31970 multiletter control sequences out of 15000+600000
- 642348 words of font info for 108 fonts, out of 8000000 for 9000
+ 3236 strings out of 468171
+ 47138 string characters out of 5434472
+ 463723 words of memory out of 5000000
+ 32124 multiletter control sequences out of 15000+600000
+ 647564 words of font info for 130 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 72i,15n,79p,306b,422s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,15n,79p,306b,427s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/1029307812_特別研究報告書2026.dvi (5 pages, 2908 bytes).
+Output written on out/1029307812_特別研究報告書2026.dvi (10 pages, 26488 bytes).

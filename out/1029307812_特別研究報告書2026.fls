@@ -55,6 +55,8 @@ INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/amssymb.sty
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/amssymb.sty
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/tools/bm.sty
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/tools/bm.sty
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-dvipdfmx.def
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-dvipdfmx.def
 INPUT out/1029307812_ç‰¹åˆ¥ç ”ç©¶å ±å‘Šæ›¸2026.aux
@@ -83,6 +85,18 @@ INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/amsfonts/umsb.fd
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib8.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib5.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/ptex-fonts/jis/jisg.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/ptex-fonts/jis/jisg.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/ptex-fonts/jis/jisg.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/ptex-fonts/jis/jis.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
@@ -102,19 +116,29 @@ INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/ptex-fonts/jis/jisg.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/ptex-fonts/jis/jisg.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/ptex-fonts/jis/jisg.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/ptex-fonts/jis/jis.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 OUTPUT out/1029307812_ÆÃÊÌ¸¦µæÊó¹ð½ñ2026.dvi
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/ptex-fonts/standard/tgoth10.tfm
-INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/ptex-fonts/jis/jisg.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/ptex-fonts/standard/tgoth10.tfm
-INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/ptex-fonts/jis/jisg.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
 INPUT out/1029307812_ç‰¹åˆ¥ç ”ç©¶å ±å‘Šæ›¸2026.toc
 INPUT out/1029307812_ç‰¹åˆ¥ç ”ç©¶å ±å‘Šæ›¸2026.toc
 INPUT out/1029307812_ÆÃÊÌ¸¦µæÊó¹ð½ñ2026.toc
 OUTPUT out/1029307812_ÆÃÊÌ¸¦µæÊó¹ð½ñ2026.toc
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/ptex-fonts/jis/jis.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/ptex-fonts/standard/tgoth10.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/ptex-fonts/jis/jisg.tfm
+INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT out/1029307812_ÆÃÊÌ¸¦µæÊó¹ð½ñ2026.aux
