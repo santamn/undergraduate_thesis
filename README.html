@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>卒業論文クラス ampbt.cls の説明書</title>
+    <style>
+      body{
+        counter-reset: sectioncnt 0;
+        line-height: 1.5em;
+        text-align: justify;
+      }
+      p {
+        text-indent: 1em;
+        margin: 0em;
+      }
+      h1{
+        font-size: 150%;
+      }
+      h2{
+        font-size: 120%;
+        counter-reset: subsectioncnt 0;
+      }
+      h2:before{
+        counter-increment: sectioncnt;
+        content: counter(sectioncnt) ". ";
+      }
+      h3{
+        font-size: 100%;
+      }
+      h3:before{
+        counter-increment: subsectioncnt;
+        content: counter(sectioncnt) "." counter(subsectioncnt) ". ";
+      }
+      pre{
+        color: #008800;
+      }
+      dd {
+        margin-bottom: 1em;
+      }
+      span.error{
+        font-family: monospace;
+        font-weight: bold;
+        color: #FF0000;
+      }
+      span.head{
+        font-weight: bold;
+        color: #000088;
+      }
+    </style>
+  </head>
+  <body>
+      <h1>卒業論文クラス ampbt.cls の説明書
+            （2023/12/20）</h1>
+      <h2 id="introduction">はじめに</h2>
+      <p>
+      ampbt.cls
+         は<!--
+   -->数理工学コースの卒業論文<!--
+      -->を書くためのクラスファイルです．
+      ampbt.cls
+         を用いると，様式が指定されている表紙，摘要，目次が必要項目を入力するだけで適切に生成されます．また，サンプルファイルで論文の形式の雛形も与えています．</p>
+
+      <h2>準備</h2>
+      <p>ダウンロードしてきた ZIP ファイルを作業用のディレクトリ（<!--
+      -->卒業論文<!--
+      -->の原稿ファイルを置くフォルダ）で解凍します．以下のファイルが生成されます．</p>
+      <ul>
+        <li><a href="README.html">README.html</a>：このファイル．</li>
+        <li><a href="ampbt.cls">ampbt.cls</a>：クラスファイル本体．</li>
+        <li><a href="ampbt_sample.tex">ampbt_sample.tex</a>, <a href="ampbt_sample.pdf">ampbt_sample.pdf</a>：サンプルソースとその出力．</li>
+        <li><a href="ampbt_figure.pdf">ampbt_figure.pdf</a>, <a href="ampbt_figure.tex">ampbt_figure.tex</a>：サンプルファイル中に挿入されている図とそのソース．</li>
+      </ul>
+      <p>文字コードは全て UTF-8 に統一されています．エディタ等で文字化けが生じた場合は UTF-8 に対応しているかどうか確認して下さい．</p>
+
+      <h2>使い方</h2>
+      <p><a href="ampbt_sample.tex">ampbt_sample.tex</a>
+      を同じディレクトリ内にコピーし，適当な名前に変更します．エディタで開いてプリアンブルに題目等の項目をコメントの説明に従って記入します．その後，本文の執筆にとりかかって下さい．</p>
+      <p>タイプセットは通常通り platex + dvipdfmx
+      を用いればよいです．万一 platex が UTF-8 のコードをうまく認識しない場合は -kanji=utf8 を platex のオプションに指定して下さい：</p>
+      <pre>
+    platex -kanji=utf8 thesis.tex</pre>
+      <p>出力は，表紙，摘要，目次，本文，提出用摘要の順となります．PandAに締切日時までに提出して下さい．提出する前に題目や各人の氏名，年月日等が合っているかどうか必ず確認すること．</p>
+      <p>注意点として，本文を両面印刷場合，本文以外については片面印刷にすることができます．クラスオプションに twoside を指定すると，これらのページの後ろに空白ページが適切に挿入され，両面印刷設定でそのまま印刷できるようになります．</p>
+
+      <h2>よくあるかもしれない質問と回答</h2>
+      <p>一般的なエディタや LaTeX の使い方については各自で書籍や Web ページ，優秀な友人や<!--
+   -->先輩<!--
+      -->にあたって下さい．処理中にエラーが出た場合は，まずはエラーメッセージを読んで何が起きているのか理解することを試みましょう（英語だからと言って思考停止しない）．</p>
+
+      <dl>
+        <dt><span class="head">Q：</span>末尾の提出用摘要が出力されないように（もしくはこれらだけが出力されるように）したいです．</dt>
+        <dd><span class="head">A：</span>サンプルの \begin{document} の直前にある「出力の制御」のところをいじって下さい．</dd>
+
+        <dt><span class="head">Q：</span>フォントサイズを変えたいです．</dt>
+        <dd><span class="head">A：</span>デフォルトでは 11pt になっていますが，通常通りクラスオプションに 12pt と指定すれば大きくできます．10pt と小さくすることもできますが，小さな文字は読みにくいので推奨しません．</dd>
+
+        <dt><span class="head">Q：</span>\chapter コマンドを使うと <span class="error">! Undefined control sequence.</span> と出ます．</dt>
+        <dd><span class="head">A：</span>デフォルトでは jsarticle
+        をベースに用いるため，\chapter は未定義でエラーが出ます．\chapter を使いたい場合はクラスオプションに chapter を指定すると jsbook[report]
+        をベースに用いるようになります．</dd>
+
+
+        <dt><span class="head">Q：</span>\vspace{...} などで指定した寸法よりも若干大きなスペースが入っているようですが．</dt>
+        <dd><span class="head">A：</span>これは jsclasses をベースに用いているために起きる現象です．フォントサイズが 11pt の場合，指定した寸法を1.1倍した値になってしまいます．これを回避するためには，単位 xx の代わりに truexx を用いて下さい（2truemm など）．</dd>
+
+        <dt><span class="head">Q：</span>レイアウトを変えるために geometry パッケージを読み込むと <span class="error">! LaTeX Error: Option clash for package geometry.</span> と出ます．</dt>
+        <dd><span class="head">A：</span>
+        ampbt.cls
+        内で既に geometry を読み込んでいるために，プリアンブルにオプション付きで geometry を読み込むと option clash となります．\begin{document} の直前に書いてあるように，\geometry コマンドを使って下さい．</dd>
+
+
+        <dt><span class="head">Q：</span>platex に -kanji=utf8 オプションをつけましたが <span class="error">platex: unrecognized option '-kanji=utf8'</span> と出ます．</dt>
+        <dt><span class="head">Q：</span>\numexpr という書いた覚えのない命令に対して <span class="error">! Undefined control sequence.</span> と出ます．</dt>
+        <dd><span class="head">A：</span>どうやら pTeX のバージョンが古すぎるようです．最新の TeX システム（<a href="http://www.tug.org/texlive/">TeX Live</a> など）を導入しなおして下さい．</dd>
+
+        <dt><span class="head">Q：</span>uplatex を使いたいのですが，<span class="error">! LaTeX Error: Font family `JY1+mc' unknown.</span> と出ます．</dt>
+        <dd><span class="head">A：</span>クラスオプションに uplatex を指定して下さい．</dd>
+
+        <dt><span class="head">Q：</span>xelatex や lualatex を使いたいのですが，<span class="error">! LaTeX Error: This file needs format `pLaTeX2e' but this is `LaTeX2e'.</span> と出ます．</dt>
+        <dd><span class="head">A：</span>jsclasses をベースに使っているので，platex, uplatex 以外ではエラーが出ます．今のところ xelatex や lualatex に対応する予定はありませんが，どうしても使いたい場合は自身で
+        ampbt.cls
+        に手を入れて下さい．</dd>
+      </dl>
+      <hr>
+      <p>作成者：<ahref="http://kmaeda.net">前田一貴</a> (<a href="mailto:kmaeda@kmaeda.net">kmaeda@kmaeda.net</a>), 
+      2023年度教務担当：柴山允瑠 (<a href="mailto:shibayama@i.kyoto-u.ac.jp">shibayama@i.kyoto-u.ac.jp</a>)</p>
+  </body>
+</html>
