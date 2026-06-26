@@ -1,24 +1,25 @@
 %% fig_orientation_sin.tex
 %% 機構の定量化: チャネルの広い断面 (x~0.20) における占有重み付き <|sin phi|>
-%% （横方向への張り出し l|sin phi| の指標）の delta 依存性。
-%% 安定配向 sin(phi1)=1/delta が与える理論曲線 |sin phi1|=min(1,1/delta) を重ねる。
+%% （横方向への張り出し l|sin phi| の指標）の |Delta alpha|E/p 依存性。
+%% 安定配向 sin(phi1)=p/(|Delta alpha|E) が与える理論曲線を重ねる。
 \begin{tikzpicture}
   \begin{groupplot}[
-      group style={group size=2 by 1, horizontal sep=1.4cm},
+      group style={group size=2 by 1, horizontal sep=2.0cm},
       thesisaxis, deltaxaxis,
+      width=6.25cm,
       ymin=0, ymax=0.95,
       ylabel={$\langle|\sin\phi|\rangle$ (広い断面)},
     ]
-    \nextgroupplot[title={$m=3$}]
-      % 理論: 安定配向の |sin phi1| = min(1, 1/delta)
+    \nextgroupplot[title={$m=3$}, legend pos=south west]
+      % 理論: 安定配向の |sin phi1| = min(1, p/(|Delta alpha|E))
       \addplot[black, densely dashed, line width=1pt, domain=0.28:1, samples=2,
         forget plot]{1};
       \addplot[black, densely dashed, line width=1pt, domain=1:11, samples=60]
         {1/x};
       \plotbetas{\figdata/transport_m3.dat}{delta}{sinw}
-      \legend{{$\min(1,1/\delta)$},{$\beta pE=0.5$},{$\beta pE=1$},%
+      \legend{{$\min\!\left(1,\frac{p}{|\Delta \alpha|E}\right)$},{$\beta pE=0.5$},{$\beta pE=1$},%
         {$\beta pE=2$},{$\beta pE=3$}}
-    \nextgroupplot[title={$m=6$}, ylabel={}]
+    \nextgroupplot[title={$m=6$}, ylabel={$\langle|\sin\phi|\rangle$ (広い断面)}]
       \addplot[black, densely dashed, line width=1pt, domain=0.28:1, samples=2,
         forget plot]{1};
       \addplot[black, densely dashed, line width=1pt, domain=1:11, samples=60,

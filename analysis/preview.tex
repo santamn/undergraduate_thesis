@@ -2,29 +2,55 @@
 %% ルートディレクトリから platex+dvipdfmx でコンパイルする:
 %%   platex -output-directory=analysis -halt-on-error analysis/preview.tex
 %%   dvipdfmx -o analysis/preview.pdf analysis/preview.dvi
-%% （\figdata は本文と同じく analysis/data を指すのでルートから実行すること）
+%% latexmk が analysis/ を作業ディレクトリにする場合にも対応。
 \documentclass[dvipdfmx,a4paper]{jsarticle}
 \usepackage{amsmath,amssymb,bm}
-\input{analysis/figstyle}
+\makeatletter
+\def\input@path{{analysis/}}
+\makeatother
+% latexmk がソース側へ移動して実行する場合と、ルートから直接 platex する場合の両方に対応。
+\IfFileExists{analysis/data/transport_m3.dat}{%
+  \newcommand{\figdata}{analysis/data}%
+}{%
+  \newcommand{\figdata}{data}%
+}
+\input{figstyle}
+
+\newcommand{\figexplain}[1]{%
+  \par\vspace{0.8em}%
+  \noindent\textbf{この図から説明できること：}#1\par
+}
+
 \begin{document}
 \begin{center}\large 卒論用 図プレビュー\end{center}
 
-\section*{Fig.~1 主結果: $v$ と $D_{\mathrm{eff}}$ の $|\Delta\alpha|E/p$ 依存性}
-\begin{center}\input{analysis/fig_transport}\end{center}
+\section*{Fig.~1: $v$ と $D_{\mathrm{eff}}$ の $\frac{|\Delta \alpha|E}{p}$ 依存性}
+\begin{center}\input{fig_transport}\end{center}
+\figexplain{誘起双極子の寄与を表す $\frac{|\Delta \alpha|E}{p}$ が大きくなるほど、棒がチャネル軸方向へ傾き、狭窄部を通りやすくなるため、平均速度 $v$ と有効拡散係数 $D_{\mathrm{eff}}$ が増加することを説明できる。棒が長い $m=6$ ではこの変化がより急で、幾何的な通りにくさが強く効いている。}
+\clearpage
 
-\section*{Fig.~2 機構: 広い断面での $\langle|\sin\phi|\rangle$}
-\begin{center}\input{analysis/fig_orientation_sin}\end{center}
+\section*{Fig.~2: もっと流路の幅が大きい場所での $\langle|\sin\phi|\rangle$}
+\begin{center}\input{fig_orientation_sin}\end{center}
+\figexplain{この図はチャネルの最も幅が広い場所における $\sin \phi$ の滞在時間による重み付き平均 $\langle|\sin\phi|\rangle$ を、熱ノイズがない場合の平衡解 $\frac{p}{|\Delta \alpha| E}$ と共に表した図である。$\sin \phi$ は棒を $y$ 軸方向へ射映した大きさの割合である。この値が $\frac{|\Delta \alpha|E}{p}$ の増加とともに小さくなることから、電場が棒を $x$ 軸方向に平行な向きに傾けていることがわかる。}
+\clearpage
 
-\section*{Fig.~3 機構: 配向分布 $P(\phi)$}
-\begin{center}\input{analysis/fig_pphi}\end{center}
+\section*{Fig.~3: 角度の分布 $P(\phi)$}
+\begin{center}\input{fig_pphi}\end{center}
+\figexplain{$\frac{|\Delta \alpha|E}{p}$ が小さいと棒は電場方向 $\phi=\pi/2$ に集中し、値が大きいと $\phi=0,\pi$ に近い軸方向へ分布が移る。この図から、輸送量の増加が角度分布の変化によって起きていることを説明できる。}
+\clearpage
 
-\section*{Fig.~4 配向 $\to$ 輸送の対応}
-\begin{center}\input{analysis/fig_collapse}\end{center}
+\section*{Fig.~4 角度と速度の対応}
+\begin{center}\input{fig_collapse}\end{center}
+\figexplain{$y$ 軸への射映成分 $\langle|\sin\phi|\rangle$ が小さい条件ほど平均速度 $v$ が大きい。同じ張り出しでも $m=6$ は $m=3$ より遅く、角度に加えて棒長そのものも輸送抵抗を大きくすることがわかる。}
+\clearpage
 
-\section*{Fig.~5 分離の動作マップ $v(\,|\Delta\alpha|E/p,\ \beta pE\,)$}
-\begin{center}\input{analysis/fig_heatmap}\end{center}
+\section*{Fig.~5 分離の動作マップ $v\!\left(\frac{|\Delta \alpha|E}{p},\ \beta pE\right)$}
+\begin{center}\input{fig_heatmap}\end{center}
+\figexplain{電場の強さや粒子の電気的性質を表すパラメータ平面上で、どの条件なら速く進むかを読み取れる。同じ動作点でも棒長によって $v$ が異なるため、移動度差を利用した分離条件を選べることを説明できる。この図はわかりづらいから論文に入れなくてもいいかも。}
+\clearpage
 
 \section*{Fig.~6 $(x,\phi)$ 占有マップ $P(\phi\,|\,x)$}
-\begin{center}\input{analysis/fig_xphi}\end{center}
+\begin{center}\input{fig_xphi}\end{center}
+\figexplain{$\frac{|\Delta \alpha|E}{p}=\frac{1}{3}$ では多くの場所で電場方向に揃うが、狭窄部では $x$ 軸に平行な方向へ棒の傾きが揃いやすい。一方、$\frac{|\Delta \alpha|E}{p}=10$ では全体として $x$ 軸方向に傾いており、狭窄部で向きを大きく変えずに通過できることを説明できる。}
 
 \end{document}

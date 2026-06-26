@@ -73,20 +73,19 @@
   これらの研究は，粒子の形状や電荷が閉じ込め輸送を大きく変えることを示している．しかし，外部から印加した電場が，永久双極子モーメントや分極異方性をもつ棒状粒子の配向を能動的に制御し，それを通じて狭窄チャネルの通過しやすさを変える効果については，まだ十分に明らかにされていない．
 
   \subsection{本研究の目的}
-  本研究では，永久双極子モーメントと分極異方性をもつ誘電性の棒状粒子が，周期的に狭窄したチャネル内を，チャネル軸方向の一定外力とそれに垂直な一様電場のもとでブラウン運動する系を考え，その輸送ダイナミクスを数値的に解析する．電場は棒にトルクを及ぼして配向分布を変化させ，狭窄部における実効的な断面（棒のチャネル横断方向への張り出し）を変える．その結果，平均速度・有効拡散係数・平均初通過時間といった輸送量が，電場の強さと粒子の電気的な性質に応じて変化すると期待される．
+  本研究では，周期的に広さが変化するチャネルにおいて，永久双極子モーメントと分極異方性をもつ誘電性の棒状粒子が，チャネル軸方向の一定外力とそれに垂直な一様電場のもとでブラウン運動する系を考え，その輸送ダイナミクスを数値的に解析する．電場によって棒にトルクが加わることで棒の角度が変化し，チャネルの狭窄部における実効的な流路幅を変化させる．その結果，平均速度・有効拡散係数・平均初通過時間といった輸送量が，電場の強さと粒子の電気的な性質に応じて変化すると期待される．
 
-  本研究の狙いは，無次元パラメータ$\beta pE$（永久双極子と熱エネルギーの比）と$\frac{|\Delta\alpha|E}{p}$（誘起双極子と永久双極子によるトルクの比）が，棒の配向分布と輸送量に与える影響を明らかにすることである．これにより，電場を用いて電気的性質の異なる粒子をより分けたり，逆に粒子の流れ方（移動度）からその電気的性質を推定したりするための，電気泳動的な分離・分析手法の基礎的な知見を与えることを目指す．
+  本研究の狙いは，双極子モーメントによるエネルギー$\beta pE$と誘起双極子と永久双極子によるトルクの比$\frac{|\Delta\alpha|E}{p}$が，棒の角度分布と輸送量に与える影響を明らかにすることである．これにより，電場を用いて電気的性質の異なる粒子をより分けたり，逆に粒子の移動度からその電気的性質を推定したりするための，電気泳動的な分離・分析手法の基礎的な知見を与えることを目指す．
 
   \section{手法}
-  本研究では，周期的に幅が変化する2次元チャネル内を運動する誘電性棒状粒子を考える．チャネルの周期を$L$とし，粒子が運動する流路の領域を
+  本研究では，周期的に幅が変化する2次元チャネル内を運動する誘電性棒状粒子を対象とする．棒の重心位置と角度に関する過減衰Langevin方程式を確率微分方程式として定式化し，これを数値的に解くことで粒子の運動と輸送量を解析する．チャネルの周期を$L$とし，粒子が運動する流路の領域を周期的な関数$\omega(x)$を用いて
   \begin{equation}
     \Omega=\{(x,y)\mid -\omega(x)\leq y\leq \omega(x)\}
   \end{equation}
-  とする．棒状粒子の状態は，重心位置$\bm{X}=(x,y)^\top$と，棒の長軸方向を表す角度$\phi$によって表す．また，棒の単位方向ベクトルを
-  $\bm{n}=(\cos\phi,\sin\phi)^\top$とする．壁から受ける反発力とそのトルクを計算するため，棒を重心と，そこから左右対称に等間隔に置いた$2m$個の点を合わせた$2m+1$個の代表点で近似する．
+  とする．
 
   \subsection{Langevin方程式}
-  対象とする粒子は水中の微小な棒状粒子であり，慣性の緩和時間は観測する時間スケールに比べて十分短い．したがって本研究では過減衰近似を用い，重心の並進運動と角度の回転運動を次のLangevin方程式で記述する．
+  対象とする粒子は水中の微小な棒状粒子であり，慣性の緩和時間は観測する時間スケールに比べて十分短い．したがって本研究では過減衰近似を用い，重心の並進運動と角度の回転運動を次のLangevin方程式で記述する．ここで，棒状粒子の重心位置を$\bm{X}=(x,y)^\top$，棒が$x$軸となす角度を$\phi$とし，棒の向きを表す単位方向ベクトルを$\bm{n}=(\cos\phi,\sin\phi)^\top$とする．
   \begin{equation}
     \begin{cases}
       \displaystyle
@@ -123,7 +122,7 @@
   \end{align}
   を満たすものとする．
 
-  棒状粒子に働く力$\bm{F}$は，チャネル方向に加える一定外力$\bm{f}=f\bm{e}_x$と，壁から各代表点が受ける反発力$\bm{f}^{\mathrm{rep}}_j$の和として
+  棒状粒子に働く力$\bm{F}$は，チャネル方向に加える一定外力$\bm{f}=f\bm{e}_x$と，壁から受ける反発力の和として
   \begin{equation}
     \bm{F}=\bm{f}+\sum_{j=-m}^{m}\bm{f}^{\mathrm{rep}}_j
     \label{eq:force}
@@ -133,27 +132,11 @@
   \begin{equation}
     \tau=\tau_{\mathrm{rep}}+\tau_E .
   \end{equation}
-  代表点の間隔を$l/(2m)$とすると，壁から受けるトルクは
-  \begin{equation}
-    \tau_{\mathrm{rep}}
-    =
-    \frac{l}{2m}\,
-    \bm{n}\times
-    \left\{
-    \sum_{k=1}^{m}
-    k\left(\bm{f}^{\mathrm{rep}}_k-\bm{f}^{\mathrm{rep}}_{-k}\right)
-    \right\}
-    \label{eq:rep-torque}
-  \end{equation}
-  で与える．ここで，2次元ベクトルの外積は面外方向のスカラー成分を表す．電場によるトルク$\tau_E$は，棒がもつ永久双極子モーメントと分極異方性に由来する．本研究では，永久双極子モーメントの大きさが棒長$l$に比例すると仮定し，単位長さあたりの実効電荷を$q$として
-  \begin{equation}
-    \bm{p}=p\bm{n},\qquad p=ql
-  \end{equation}
-  とおく．$\tau_E$の具体形は\ref{subsec:electric-torque}節で導出する．
+  具体的な反発力と反発トルクの計算方法は\ref{subsec:repulsion-boundary}節で述べる．また，電場によるトルク$\tau_E$は，棒がもつ永久双極子モーメントと分極異方性に由来し，その具体形は\ref{subsec:electric-torque}節で導出する．
 
   \subsection{電場によるトルク}
   \label{subsec:electric-torque}
-  電場によるトルク$\tau_E$は，電場$\bm{E}$中での棒の静電エネルギー$U_E$を用いて$\tau_E=-\partial U_E/\partial\phi$と表される．棒が永久双極子モーメント$\bm{p}=ql\bm{n}$と分極率テンソル$\hat{\alpha}$をもつとすると，静電エネルギーは
+  電場によるトルク$\tau_E$は，電場$\bm{E}$中での棒の静電エネルギー$U_E$を用いて$\tau_E=-\partial U_E/\partial\phi$と表される．棒が永久双極子モーメント$\bm{p}=p\bm{n}$と分極率テンソル$\hat{\alpha}$をもつとすると，静電エネルギーは
   \begin{equation}
     U_E=-\bm{p}\cdot\bm{E}-\frac12\bm{E}^\top\hat{\alpha}\bm{E}
     \label{eq:electric-energy}
@@ -175,7 +158,7 @@
   を得る．電場を$y$方向に加えるとして$\bm{E}=(0,E)^\top$とし，$\bm{n}=(\cos\phi,\sin\phi)^\top$を用いると，
   \begin{equation}
     U_E(\phi)
-    =-qlE\sin\phi
+    =-pE\sin\phi
     -\frac{E^2}{2}\alpha_{\perp}
     -\frac{E^2}{2}\Delta\alpha\sin^2\phi
   \end{equation}
@@ -184,7 +167,7 @@
     \tau_E(\phi)
      & =
     -\frac{\partial U_E}{\partial\phi}
-    =qlE\cos\phi+\Delta\alpha E^2\sin\phi\cos\phi \notag \\
+    =pE\cos\phi+\Delta\alpha E^2\sin\phi\cos\phi \notag \\
      & =
     pE\cos\phi
     \left(
@@ -192,7 +175,7 @@
     \right)
     \label{eq:electric-torque}
   \end{align}
-  を得る（$p=ql$）．第1項は電場の強さ$E$に比例する永久双極子由来のトルクであり，棒を電場方向（$y$軸方向）に揃えようとする．第2項は$E^2$に比例する誘起双極子由来のトルクである．
+  を得る．第1項は電場の強さ$E$に比例する永久双極子由来のトルクであり，棒を電場方向（$y$軸方向）に揃えようとする．第2項は$E^2$に比例する誘起双極子由来のトルクである．
 
   本研究では，棒が長軸に垂直な方向により強く分極する場合，すなわち分極異方性が負（$\Delta\alpha<0$）の場合に着目する．このとき式\eqref{eq:electric-torque}は
   \begin{equation}
@@ -293,7 +276,7 @@
   \subsection{数値積分}
   式\eqref{eq:dimensionless-sde}を時間刻み$\Delta t$で離散化する．本研究の系では，実験室系の並進拡散テンソル$\mathbb{D}_{\mathrm{lab}}(\phi)$と並進雑音にかかる回転$\mathbb{R}(\phi)$が状態（角度$\phi$）に依存する乗法的な雑音となっている．単純なEuler--Maruyama法ではこれらを時間刻みの始点でのみ評価するため離散化誤差が大きくなりやすい．そこで先行研究\cite{yang2019}にならい，予測した状態で力・トルクおよび拡散テンソル・回転行列を再評価する予測子・修正子法を用いる．
 
-  時刻$t_n$における状態を$s_n=(\bm{X}_n,\phi_n)$とする．各時間刻みで，$\bm{\eta}_t=(\eta_x,\eta_y)^\top$と$\eta_r$を，平均0，分散1の独立な標準正規乱数として生成する．まず現在状態$s_n$から予測点$s^\ast=(\bm{X}^\ast,\phi^\ast)$を
+  数値計算では，各時刻の粒子状態を重心位置と配向角の組として管理する．時刻$t_n$における状態を$s_n=(\bm{X}_n,\phi_n)$とし，反発力や反発トルクを評価するときには，現在の状態から\ref{subsec:repulsion-boundary}節で述べる代表点の位置を計算する．各時間刻みで，$\bm{\eta}_t=(\eta_x,\eta_y)^\top$と$\eta_r$を，平均0，分散1の独立な標準正規乱数として生成する．まず現在状態$s_n$から予測点$s^\ast=(\bm{X}^\ast,\phi^\ast)$を
   \begin{align}
     \bm{X}^\ast
      & =
@@ -324,9 +307,16 @@
     \label{eq:corrector-phi}
   \end{align}
   と更新する．
+  予測点および修正子で得られた候補状態が流路外に出た場合は，\ref{subsec:repulsion-boundary}節の境界処理で補正し，補正後の$(\bm{X}_{n+1},\phi_{n+1})$を次の時刻の状態として保存する．
 
   \subsection{壁面からの反発力と境界処理}
-  壁面は，壁上に等間隔に配置したサンプリング点によって表す．粒子代表点$\bm{r}_j$と壁点$\bm{r}_k$の距離を$r=|\bm{r}_j-\bm{r}_k|$とし，壁からの短距離反発をWCAポテンシャル
+  \label{subsec:repulsion-boundary}
+  壁面からの反発力とそれに伴うトルクを計算するため，棒を重心と，そこから左右対称に等間隔に置いた$2m$個の点を合わせた$2m+1$個の代表点で近似する．状態$s=(\bm{X},\phi)$が与えられたとき，代表点の位置を
+  \begin{equation}
+    \bm{r}_j=\bm{X}+\frac{jl}{2m}\bm{n},\qquad j=-m,\ldots,m
+    \label{eq:representative-points}
+  \end{equation}
+  とする．壁面は，壁上に等間隔に配置したサンプリング点によって表す．粒子代表点$\bm{r}_j$と壁点$\bm{r}_k$の距離を$r=|\bm{r}_j-\bm{r}_k|$とし，壁からの短距離反発をWCAポテンシャル
   \begin{equation}
     U_{\mathrm{WCA}}(r)=
     \begin{cases}
@@ -345,17 +335,40 @@
     \label{eq:wca}
   \end{equation}
   でモデル化する．したがって，代表点$j$が受ける反発力は
-  \begin{equation}
+  \begin{align}
     \bm{f}^{\mathrm{rep}}_j
-    =
+     & =
     \sum_{r_{jk}<2^{1/6}\sigma}
-    \frac{24\epsilon}{r_{jk}^2}
-    s_{jk}^6
-    \left(2s_{jk}^6-1\right)
-    \bm{d}_{jk}
+    -\nabla U_{\mathrm{WCA}}(r_{jk}) \notag \\
+     & =
+    \sum_{r_{jk}<2^{1/6}\sigma}
+    \frac{24\epsilon}{\sigma}
+    \left(\frac{\sigma}{r_{jk}}\right)^{7}
+    \left[
+      2\left(\frac{\sigma}{r_{jk}}\right)^{6}-1
+      \right]
+    \bm{e}_{k\to j}
     \label{eq:wca-force}
-  \end{equation}
-  と書ける．ここで，$\bm{d}_{jk}=\bm{r}_j-\bm{r}_k$，$r_{jk}=|\bm{d}_{jk}|$，$s_{jk}^2=\sigma^2/r_{jk}^2$，$s_{jk}^6=(s_{jk}^2)^3$である．WCA力は$r\to 0$で発散するため，実装では1つの代表点と1つの壁点の組から生じる力の大きさに上限を設ける．この上限値はシミュレーション設定で述べる．
+  \end{align}
+  と書ける．ここで，$r_{jk}=|\bm{r}_j-\bm{r}_k|$は壁点$\bm{r}_k$から代表点$\bm{r}_j$までの距離，$\bm{e}_{k\to j}$は壁点から代表点へ向かう単位ベクトルである．WCA力は$r\to 0$で発散するため，実装では1つの代表点と1つの壁点の組から生じる力の大きさに上限を設ける．この上限値はシミュレーション設定で述べる．
+
+  反発力によるトルクは，各代表点に働く反発力の重心まわりのモーメントを足し合わせて
+  \begin{align}
+    \tau_{\mathrm{rep}}
+     & =
+    \sum_{j=-m}^{m}
+    \left(\bm{r}_j-\bm{X}\right)\times
+    \bm{f}^{\mathrm{rep}}_j \notag \\
+     & =
+    \frac{l}{2m}\,
+    \bm{n}\times
+    \left\{
+    \sum_{q=1}^{m}
+    q\left(\bm{f}^{\mathrm{rep}}_q-\bm{f}^{\mathrm{rep}}_{-q}\right)
+    \right\}
+    \label{eq:rep-torque}
+  \end{align}
+  で与える．ここで，2次元ベクトルの外積は面外方向のスカラー成分を表す．
 
   反発力を用いても，有限の時間刻みでは予測点や修正子で得た候補点が流路外に出ることがある．そこで本研究では，境界外に出た候補状態を，現在位置側の壁に対して鏡映することで境界条件を満たすよう補正する．候補重心を$\bm{X}^q=(x^q,y^q)$とすると，$y^q>\omega(x^q)$なら上壁，$y^q<-\omega(x^q)$なら下壁の外側にあると判定する．上下壁を$\sigma_w\in\{+1,-1\}$を用いて
   \begin{equation}
