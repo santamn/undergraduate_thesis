@@ -1,0 +1,30 @@
+%% preview.tex — 図の確認用スタンドアロン文書。
+%% ルートディレクトリから platex+dvipdfmx でコンパイルする:
+%%   platex -output-directory=analysis -halt-on-error analysis/preview.tex
+%%   dvipdfmx -o analysis/preview.pdf analysis/preview.dvi
+%% （\figdata は本文と同じく analysis/data を指すのでルートから実行すること）
+\documentclass[dvipdfmx,a4paper]{jsarticle}
+\usepackage{amsmath,amssymb,bm}
+\input{analysis/figstyle}
+\begin{document}
+\begin{center}\large 卒論用 図プレビュー\end{center}
+
+\section*{Fig.~1 主結果: $v$ と $D_{\mathrm{eff}}$ の $|\Delta\alpha|E/p$ 依存性}
+\begin{center}\input{analysis/fig_transport}\end{center}
+
+\section*{Fig.~2 機構: 広い断面での $\langle|\sin\phi|\rangle$}
+\begin{center}\input{analysis/fig_orientation_sin}\end{center}
+
+\section*{Fig.~3 機構: 配向分布 $P(\phi)$}
+\begin{center}\input{analysis/fig_pphi}\end{center}
+
+\section*{Fig.~4 配向 $\to$ 輸送の対応}
+\begin{center}\input{analysis/fig_collapse}\end{center}
+
+\section*{Fig.~5 分離の動作マップ $v(\,|\Delta\alpha|E/p,\ \beta pE\,)$}
+\begin{center}\input{analysis/fig_heatmap}\end{center}
+
+\section*{Fig.~6 $(x,\phi)$ 占有マップ $P(\phi\,|\,x)$}
+\begin{center}\input{analysis/fig_xphi}\end{center}
+
+\end{document}

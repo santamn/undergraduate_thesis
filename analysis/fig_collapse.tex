@@ -1,0 +1,22 @@
+%% fig_collapse.tex
+%% 配向 → 輸送の対応: 横軸に広い断面での <|sin phi|>（張り出しの指標）、
+%% 縦軸に v=L/T1。全 48 combo を散布。単調減少の帯に乗れば
+%% 「配向（張り出し）が輸送を支配している」ことの直接的証拠になる。
+\begin{tikzpicture}
+  \begin{axis}[
+      thesisaxis,
+      width=8.0cm, height=6.2cm,
+      xlabel={$\langle|\sin\phi|\rangle$ (広い断面)},
+      ylabel={$v=L/T_1$},
+      xmin=0.1, xmax=0.85, ymin=0.1, ymax=1.05,
+      legend pos=north east,
+    ]
+    \addplot[only marks, mark=*, mark size=1.8pt, color=betaA,
+      mark options={fill=betaA, fill opacity=0.7}]
+      table[x=sin_wide, y=v]{\figdata/collapse_m3.dat};
+    \addplot[only marks, mark=square*, mark size=1.8pt, color=betaC,
+      mark options={fill=betaC, fill opacity=0.7}]
+      table[x=sin_wide, y=v]{\figdata/collapse_m6.dat};
+    \legend{$m=3$,$m=6$}
+  \end{axis}
+\end{tikzpicture}

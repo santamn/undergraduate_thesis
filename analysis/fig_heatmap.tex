@@ -1,0 +1,31 @@
+%% fig_heatmap.tex
+%% 分離の「動作マップ」: パラメータ平面 (|Delta alpha|E/p, beta pE) 上での
+%% 平均速度 v=L/T1 を上から見たヒートマップで表す。同じ動作点でも
+%% m（棒長）で v が大きく異なれば、速度（移動度）の差として
+%% 電気的・幾何的性質を分離できることを示す。
+\begin{tikzpicture}
+  \begin{groupplot}[
+      group style={group size=2 by 1, horizontal sep=3.4cm},
+      width=5.4cm, height=4.8cm, scale only axis,
+      view={0}{90},                      % 真上から見た 2D ヒートマップ
+      tick align=outside,
+      tick label style={font=\footnotesize}, label style={font=\small},
+      title style={font=\small},
+      xlabel={$|\Delta\alpha|E/p$},
+      xtick={-1.585,0,1,1.585,2.322,3.322},
+      xticklabels={$\tfrac13$,$1$,$2$,$3$,$5$,$10$},
+      ylabel={$\beta pE$}, ytick={0.5,1,2,3},
+      xmin=-1.585, xmax=3.322, ymin=0.5, ymax=3,
+      enlargelimits=false,
+      colormap/viridis,
+      colorbar, colorbar style={font=\footnotesize, width=0.22cm,
+        ylabel={$v=L/T_1$}},
+    ]
+    \nextgroupplot[title={$m=3$}, point meta min=0.25, point meta max=1.0]
+      \addplot3[surf, shader=interp, mesh/cols=6]
+        table[x=log2delta, y=beta, z=v]{\figdata/heat_m3.dat};
+    \nextgroupplot[title={$m=6$}, point meta min=0.13, point meta max=0.62]
+      \addplot3[surf, shader=interp, mesh/cols=6]
+        table[x=log2delta, y=beta, z=v]{\figdata/heat_m6.dat};
+  \end{groupplot}
+\end{tikzpicture}

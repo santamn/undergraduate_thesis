@@ -1,0 +1,4 @@
+omega_min = 0.0191 at x=0.8096  (full width 0.0382)
+omega_max = 2.2209 at x=0.1904  (full width 4.4418)
+m=3: l=0.0384, (l/2)/omega_min=1.006  (=> tilt fit threshold delta ~ 1.01)
+m=6: l=0.0768, (l/2)/omega_min=2.012  (=> tilt fit threshold delta ~ 2.01)

@@ -1,0 +1,35 @@
+%% fig_pphi.tex
+%% 機構の可視化: 広い断面での配向分布 P(phi)。
+%% delta が小さいと phi=90deg（電場方向・最大張り出し）に単峰、
+%% delta が大きいと phi1=arcsin(1/delta) 付近（軸方向）へ二峰化して移動する。
+\begin{tikzpicture}
+  \begin{groupplot}[
+      group style={group size=2 by 1, horizontal sep=1.4cm},
+      thesisaxis,
+      xmin=0, xmax=360,
+      xtick={0,90,180,270,360},
+      xticklabels={$0$,$\tfrac{\pi}{2}$,$\pi$,$\tfrac{3\pi}{2}$,$2\pi$},
+      xlabel={$\phi$}, ylabel={$P(\phi)$},
+      ymin=0, ymax=0.62,
+      cycle list={
+        {betaA, line width=1pt},
+        {betaB, line width=1pt},
+        {betaC, line width=1pt},
+        {betaD, line width=1pt}},
+    ]
+    \nextgroupplot[title={$m=3,\ \beta pE=3$}]
+      % phi=90deg（小 delta の安定配向）の目印
+      \draw[gray, densely dotted] (axis cs:90,0) -- (axis cs:90,0.62);
+      \addplot table[x=phi_deg, y=d0333333]{\figdata/pphi_wide_m3_b3.dat};
+      \addplot table[x=phi_deg, y=d1]{\figdata/pphi_wide_m3_b3.dat};
+      \addplot table[x=phi_deg, y=d3]{\figdata/pphi_wide_m3_b3.dat};
+      \addplot table[x=phi_deg, y=d10]{\figdata/pphi_wide_m3_b3.dat};
+      \legend{$\delta=\tfrac13$,$\delta=1$,$\delta=3$,$\delta=10$}
+    \nextgroupplot[title={$m=6,\ \beta pE=3$}, ylabel={}]
+      \draw[gray, densely dotted] (axis cs:90,0) -- (axis cs:90,0.62);
+      \addplot table[x=phi_deg, y=d0333333]{\figdata/pphi_wide_m6_b3.dat};
+      \addplot table[x=phi_deg, y=d1]{\figdata/pphi_wide_m6_b3.dat};
+      \addplot table[x=phi_deg, y=d3]{\figdata/pphi_wide_m6_b3.dat};
+      \addplot table[x=phi_deg, y=d10]{\figdata/pphi_wide_m6_b3.dat};
+  \end{groupplot}
+\end{tikzpicture}

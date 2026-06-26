@@ -1,0 +1,93 @@
+%% figstyle.tex
+%% 卒論用 pgfplots 図の共通設定。
+%% 本文 (1029307812_特別研究報告書2026.tex) のプリアンブルで
+%%   \input{analysis/figstyle}
+%% を呼び、各図は \input{analysis/fig_xxx} で取り込む。
+%%
+%% ※ documentclass のオプションに [dvipdfmx] が付いているので、
+%%   tikz/pgfplots は自動で dvipdfmx ドライバを使う（platex + dvipdfmx 構成）。
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{groupplots}
+\usetikzlibrary{pgfplots.groupplots}
+
+%% データファイルの場所（本文からの相対パス）。必要なら上書き可。
+\providecommand{\figdata}{analysis/data}
+
+%% 図が多い節で float が後ろの節へ流れ込まないように配置を緩める。
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.9}
+\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.75}
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{1}
+\setcounter{totalnumber}{4}
+
+%% '#' 始まりの行をコメントとして無視させる（gnuplot 風 .dat 用）。
+\pgfplotstableset{col sep=space, comment chars={\#}}
+
+%% beta = 0.5,1,2,3 を表す色（色覚多様性に配慮した4色）
+\definecolor{betaA}{HTML}{0072B2} % beta=0.5  青
+\definecolor{betaB}{HTML}{009E73} % beta=1    緑
+\definecolor{betaC}{HTML}{E69F00} % beta=2    橙
+\definecolor{betaD}{HTML}{D55E00} % beta=3    朱
+
+%% 図の基本スタイル
+\pgfplotsset{
+  thesisaxis/.style={
+    width=7.2cm, height=5.6cm,
+    scale only axis,
+    tick align=outside,
+    tick label style={font=\footnotesize},
+    label style={font=\small},
+    legend style={font=\footnotesize, draw=none, fill opacity=0.85,
+      text opacity=1, row sep=1pt, inner sep=2pt},
+    every axis plot/.append style={line width=0.9pt, mark size=1.6pt},
+    grid=both,
+    grid style={line width=0.2pt, draw=gray!18},
+    major grid style={line width=0.3pt, draw=gray!30},
+  },
+  % beta 4本のカーブを一括設定する系列スタイル
+  betaplotA/.style={color=betaA, mark=*,        mark options={fill=betaA}},
+  betaplotB/.style={color=betaB, mark=square*,  mark options={fill=betaB}},
+  betaplotC/.style={color=betaC, mark=triangle*,mark options={fill=betaC}},
+  betaplotD/.style={color=betaD, mark=diamond*, mark options={fill=betaD}},
+}
+
+%% delta 軸（対数）の共通設定
+\pgfplotsset{
+  deltaxaxis/.style={
+    xmode=log, log basis x=10,
+    xtick={0.3333,1,2,3,5,10},
+    xticklabels={$\tfrac13$,$1$,$2$,$3$,$5$,$10$},
+    xlabel={$|\Delta\alpha|E/p$},
+    xmin=0.28, xmax=12,
+  },
+}
+
+%% beta 凡例（4系列に共通で使う）
+\newcommand{\betalegend}{\legend{$\beta pE=0.5$,$\beta pE=1$,$\beta pE=2$,$\beta pE=3$}}
+
+%% 4本の beta カーブ（誤差棒つき）を一括描画。
+%%   #1 データファイル, #2 x列名, #3 値の接頭辞, #4 誤差の接頭辞
+\newcommand{\plotbetaserr}[4]{%
+  \addplot[betaplotA, error bars/.cd, y dir=both, y explicit]
+    table[x=#2, y=#3_b05, y error=#4_b05]{#1};
+  \addplot[betaplotB, error bars/.cd, y dir=both, y explicit]
+    table[x=#2, y=#3_b1,  y error=#4_b1]{#1};
+  \addplot[betaplotC, error bars/.cd, y dir=both, y explicit]
+    table[x=#2, y=#3_b2,  y error=#4_b2]{#1};
+  \addplot[betaplotD, error bars/.cd, y dir=both, y explicit]
+    table[x=#2, y=#3_b3,  y error=#4_b3]{#1};
+}
+
+%% 4本の beta カーブ（誤差棒なし）。#1 ファイル, #2 x列, #3 値の接頭辞
+\newcommand{\plotbetas}[3]{%
+  \addplot[betaplotA] table[x=#2, y=#3_b05]{#1};
+  \addplot[betaplotB] table[x=#2, y=#3_b1]{#1};
+  \addplot[betaplotC] table[x=#2, y=#3_b2]{#1};
+  \addplot[betaplotD] table[x=#2, y=#3_b3]{#1};
+}

@@ -1,0 +1,30 @@
+%% fig_transport.tex
+%% 主結果: 平均速度 v=L/T1 と有効拡散係数 D_eff の delta 依存性。
+%% 列 = 棒長 (m=3, m=6)、行 = (v, D_eff)。誤差棒はブートストラップ標準誤差。
+\begin{tikzpicture}
+  \begin{groupplot}[
+      group style={group size=2 by 2, horizontal sep=1.4cm,
+        vertical sep=1.1cm, xticklabels at=edge bottom},
+      thesisaxis, deltaxaxis,
+    ]
+    % --- 左上: v, m=3 ---
+    \nextgroupplot[ylabel={$v=L/T_1$}, title={$m=3$ (棒長 $\approx$ 最狭窄部)},
+      ymin=0.25, ymax=1.05]
+      \plotbetaserr{\figdata/transport_m3.dat}{delta}{v}{sev}
+      \draw[densely dashed, gray] ({axis cs:1,0}|-{rel axis cs:0,0})
+        -- ({axis cs:1,0}|-{rel axis cs:0,1});
+      \betalegend
+    % --- 右上: v, m=6 ---
+    \nextgroupplot[title={$m=6$ (棒長 $\approx 2\times$ 最狭窄部)},
+      ymin=0.1, ymax=0.65]
+      \plotbetaserr{\figdata/transport_m6.dat}{delta}{v}{sev}
+      \draw[densely dashed, gray] ({axis cs:2,0}|-{rel axis cs:0,0})
+        -- ({axis cs:2,0}|-{rel axis cs:0,1});
+    % --- 左下: D_eff, m=3 ---
+    \nextgroupplot[ylabel={$D_{\mathrm{eff}}$}, ymin=0.1, ymax=0.42]
+      \plotbetaserr{\figdata/transport_m3.dat}{delta}{D}{seD}
+    % --- 右下: D_eff, m=6 ---
+    \nextgroupplot[ymin=0.05, ymax=0.25]
+      \plotbetaserr{\figdata/transport_m6.dat}{delta}{D}{seD}
+  \end{groupplot}
+\end{tikzpicture}
