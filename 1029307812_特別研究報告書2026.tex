@@ -23,7 +23,7 @@
 \def\numberofspines{1}
 %%% 摘要 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \abstract{%
-  複雑な形状の空間におけるブラウン運動の輸送ダイナミクスは，粒子の選別や分離・分析デバイスへの応用の観点から，幅広い分野で研究されている．本研究では，永久双極子モーメントと分極異方性をもつ誘電性の棒状粒子が，周期的に狭窄したチャネル内を，チャネル軸方向の一定外力とそれに垂直な一様電場のもとで行うブラウン運動を考える．過減衰Langevin方程式に基づく数値シミュレーションにより，粒子が1周期分を通過する平均初通過時間，平均速度，および有効拡散係数を求める．電場は棒にトルクを及ぼして配向分布を変化させ，狭窄部における実効的な断面を変えると考えられる．本研究では，永久双極子と熱エネルギーの比 $\beta pE$，および誘起双極子と永久双極子によるトルクの比 $\frac{|\Delta\alpha|E}{p}$ が棒の輸送量に与える影響を解析し，電場を用いて電気的性質の異なる粒子をより分ける分離手法の基礎的な知見を得ることを目指す．
+  複雑な形状の空間におけるブラウン運動の輸送ダイナミクスは，粒子の選別や分離・分析デバイスへの応用の観点から，幅広い分野で研究されている．本研究では，永久双極子モーメントと分極異方性をもつ誘電性の棒状粒子が，周期的に狭窄したチャネル内を，チャネル軸方向の一定外力とそれに垂直な一様電場のもとで行うブラウン運動を考える．過減衰Langevin方程式に基づく数値シミュレーションにより，粒子が1周期分を通過する平均初通過時間，平均速度，および有効拡散係数を求める．電場は棒にトルクを及ぼして棒の向きの分布を変化させ，狭窄部における実効的な断面を変えると考えられる．本研究では，永久双極子と熱エネルギーの比 $\beta pE$，および誘起双極子と永久双極子によるトルクの比 $\frac{|\Delta\alpha|E}{p}$ が棒の輸送量に与える影響を解析し，電場を用いて電気的性質の異なる粒子をより分ける分離手法の基礎的な知見を得ることを目指す．
 }
 %%% パッケージの読み込みや自分用のマクロの定義 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{amsmath,amssymb,bm}
@@ -66,16 +66,16 @@
   % このような系では，チャネルの形状による幾何学的な制約が粒子の実現可能な配置を制限し，自由エネルギーに対するエントロピー障壁として働くことで輸送を支配する\cite{yang2019,schmid2008}．また，熱ノイズと空間構造の非対称性を組み合わせることで，一方向への正味の粒子輸送を生み出すブラウンラチェットのような輸送機構も考えられている\cite{schmid2008}．特に，周期的に断面積が変化するチャネルに一定の外力を加えると，粒子はエントロピー障壁を越えながら一方向へ輸送され，その平均速度や有効拡散係数は外力と熱揺らぎの比などの少数のパラメータによって特徴づけられる\cite{schmid2008}．したがって，閉じ込め形状，外力，熱揺らぎの相互作用が輸送量にどのように反映されるかを理解することは，複雑な形状の空間における粒子輸送を制御するための基礎となる．
 
   \subsection{先行研究}
-  並進自由度のみを持つような粒子の閉じ込め拡散はよく調べられているが，棒状粒子ではさらに回転自由度が加わることでより複雑な振る舞いを示す．Yangら\cite{yang2019}は，周期的に幅が変化する準2次元チャネルでの棒状のコロイド粒子の拡散を実験的に調べ，並進拡散係数が粒子の位置と配向の双方に依存するテンソルとなることや，最狭窄部では棒がチャネル軸方向に配向しやすいことを示した．さらに彼らは，標準的なFick--Jacobs近似を拡張することで，チャネルに沿った平均初通過時間を定量的に再現できることを示した．
+  並進自由度のみを持つような粒子の閉じ込め拡散はよく調べられているが，棒状粒子ではさらに回転自由度が加わることでより複雑な振る舞いを示す．Yangら\cite{yang2019}は，周期的に幅が変化する準2次元チャネルでの棒状のコロイド粒子の拡散を実験的に調べ，並進拡散係数が粒子の位置と棒の向きの双方に依存するテンソルとなることや，最狭窄部では棒がチャネル軸方向を向きやすいことを示した．さらに彼らは，標準的なFick--Jacobs近似を拡張することで，チャネルに沿った平均初通過時間を定量的に再現できることを示した．
 
   MalgarettiとHarting\cite{malgaretti2021}は，断面積が変化するチャネル中を運動する中性および帯電した棒のダイナミクスを，Fick--Jacobs近似に基づいて解析した．彼らは，局所拡散係数が棒の幾何形状と電荷の双方に依存すること，棒の長さがチャネルの平均断面と同程度のときに局所拡散係数の変調が最大となることを示した．さらに注目すべきこととして，チャネルの透過率が棒の電荷に対して単調には依存しないことを見出し，これが電気的な性質によって棒を分離する新たな機構となりうると指摘している．
 
-  これらの研究は，粒子の形状や電荷が閉じ込め輸送を大きく変えることを示している．しかし，外部から印加した電場が，永久双極子モーメントや分極異方性をもつ棒状粒子の配向を能動的に制御し，それを通じて狭窄チャネルの通過しやすさを変える効果については，まだ十分に明らかにされていない．
+  これらの研究は，粒子の形状や電荷が閉じ込め輸送を大きく変えることを示している．しかし，外部から印加した電場が，永久双極子モーメントや分極異方性をもつ棒状粒子の向きを能動的に制御し，それを通じてチャネルの狭窄部の通過しやすさを変える効果については，まだ十分に明らかにされていない．
 
   \subsection{本研究の目的}
-  本研究では，周期的に広さが変化するチャネルにおいて，永久双極子モーメントと分極異方性をもつ誘電性の棒状粒子が，チャネル軸方向の一定外力とそれに垂直な一様電場のもとでブラウン運動する系を考え，その輸送ダイナミクスを数値的に解析する．電場によって棒にトルクが加わることで棒の角度が変化し，チャネルの狭窄部における実効的な流路幅を変化させる．その結果，平均速度・有効拡散係数・平均初通過時間といった輸送量が，電場の強さと粒子の電気的な性質に応じて変化すると期待される．
+  本研究では，周期的に広さが変化するチャネルにおいて，永久双極子モーメントと分極異方性をもつ誘電性の棒状粒子が，チャネル軸方向への一定の外力とそれに垂直な一様電場のもとでブラウン運動する系を考え，その輸送ダイナミクスを数値的に解析する．電場によって棒にトルクが加わることで棒の角度が変化し，チャネルの狭窄部における実効的な流路幅を変化させる．その結果，平均速度・有効拡散係数・平均初通過時間といった輸送量が，電場の強さと粒子の電気的な性質に応じて変化すると期待される．
 
-  本研究の狙いは，双極子モーメントによるエネルギー$\beta pE$と誘起双極子と永久双極子によるトルクの比$\frac{|\Delta\alpha|E}{p}$が，棒の角度分布と輸送量に与える影響を明らかにすることである．これにより，電場を用いて電気的性質の異なる粒子をより分けたり，逆に粒子の移動度からその電気的性質を推定したりするための，電気泳動的な分離・分析手法の基礎的な知見を与えることを目指す．
+  本研究の狙いは，双極子モーメントによるエネルギー$pE$と誘起双極子と永久双極子によるトルクの比$\frac{|\Delta\alpha|E}{p}$が，棒の角度分布と輸送量に与える影響を明らかにすることである．これにより，電場を用いて電気的性質の異なる粒子をより分けたり，逆に粒子の移動度からその電気的性質を推定したりするための，電気泳動的な分離・分析手法の基礎的な知見を与えることを目指す．
 
   \section{手法}
   本研究では，周期的に幅が変化する2次元チャネル内を運動する誘電性棒状粒子を対象とする．棒の重心位置と角度に関する過減衰Langevin方程式を確率微分方程式として定式化し，これを数値的に解くことで粒子の運動と輸送量を解析する．チャネルの周期を$L$とし，粒子が運動する流路の領域を周期的な関数$\omega(x)$を用いて
@@ -85,6 +85,7 @@
   とする．
 
   \subsection{Langevin方程式}
+  \label{subsec:langevin}
   対象とする粒子は水中の微小な棒状粒子であり，慣性の緩和時間は観測する時間スケールに比べて十分短い．したがって本研究では過減衰近似を用い，重心の並進運動と角度の回転運動を次のLangevin方程式で記述する．ここで，棒状粒子の重心位置を$\bm{X}=(x,y)^\top$，棒が$x$軸となす角度を$\phi$とし，棒の向きを表す単位方向ベクトルを$\bm{n}=(\cos\phi,\sin\phi)^\top$とする．
   \begin{equation}
     \begin{cases}
@@ -113,12 +114,10 @@
   \end{equation}
   とした．$D_{\parallel}$と$D_{\perp}$はそれぞれ棒の長軸方向および長軸に垂直な方向の並進拡散係数，$D_r$は回転拡散係数である．$\bm{\xi}(t)$および$\xi_r(t)$は平均0の白色雑音であり，
   \begin{align}
-    \langle \bm{\xi}(t)\rangle & =\bm{0},                  &
-    \langle \bm{\xi}(t)\bm{\xi}(t')^\top\rangle
-                               & =2\mathbb{D}\delta(t-t'),   \\
-    \langle \xi_r(t)\rangle    & =0,                       &
-    \langle \xi_r(t)\xi_r(t')\rangle
-                               & =2D_r\delta(t-t')
+    \langle \bm{\xi}(t)\rangle                  & = \bm{0},                &
+    \langle \bm{\xi}(t)\bm{\xi}(t')^\top\rangle & =2\mathbb{D}\delta(t-t')   \\
+    \langle \xi_r(t)\rangle                     & =0,                      &
+    \langle \xi_r(t)\xi_r(t')\rangle            & = 2D_r\delta(t-t')
   \end{align}
   を満たすものとする．
 
@@ -127,190 +126,12 @@
     \bm{F}=\bm{f}+\sum_{j=-m}^{m}\bm{f}^{\mathrm{rep}}_j
     \label{eq:force}
   \end{equation}
-  と書く．一方，トルク$\tau$は壁からの反発力によるトルク
-  $\tau_{\mathrm{rep}}$と，外部電場によるトルク$\tau_E$の和である：
+  と書く．一方，トルク$\tau$は壁からの反発力によるトルク$\tau_{\mathrm{rep}}$と，外部電場によるトルク$\tau_E$の和
   \begin{equation}
-    \tau=\tau_{\mathrm{rep}}+\tau_E .
+    \tau=\tau_{\mathrm{rep}}+\tau_E
   \end{equation}
-  具体的な反発力と反発トルクの計算方法は\ref{subsec:repulsion-boundary}節で述べる．また，電場によるトルク$\tau_E$は，棒がもつ永久双極子モーメントと分極異方性に由来し，その具体形は\ref{subsec:electric-torque}節で導出する．
+  として表される．電場によるトルク$\tau_E$は棒がもつ永久双極子モーメントと分極異方性に由来し，その具体形は\ref{subsec:electric-torque}節で導出する．以下では，壁から受ける反発力$\bm{f}^{\mathrm{rep}}_j$と反発トルク$\tau_{\mathrm{rep}}$の具体形を述べる．
 
-  \subsection{電場によるトルク}
-  \label{subsec:electric-torque}
-  電場によるトルク$\tau_E$は，電場$\bm{E}$中での棒の静電エネルギー$U_E$を用いて$\tau_E=-\partial U_E/\partial\phi$と表される．棒が永久双極子モーメント$\bm{p}=p\bm{n}$と分極率テンソル$\hat{\alpha}$をもつとすると，静電エネルギーは
-  \begin{equation}
-    U_E=-\bm{p}\cdot\bm{E}-\frac12\bm{E}^\top\hat{\alpha}\bm{E}
-    \label{eq:electric-energy}
-  \end{equation}
-  と書ける．右辺第1項は永久双極子と電場の相互作用を，第2項は誘起双極子による寄与を表す．分極率テンソルは，棒の長軸方向の分極率$\alpha_{\parallel}$と長軸に垂直な方向の分極率$\alpha_{\perp}$を用いて
-  \begin{equation}
-    \hat{\alpha}
-    =\alpha_{\parallel}\bm{n}\bm{n}^\top
-    +\alpha_{\perp}\left(\bm{I}-\bm{n}\bm{n}^\top\right)
-  \end{equation}
-  と表されると仮定する．これを式\eqref{eq:electric-energy}に代入すると，
-  \begin{equation}
-    U_E
-    =-\bm{p}\cdot\bm{E}
-    -\frac12\alpha_{\perp}|\bm{E}|^2
-    -\frac12\left(\alpha_{\parallel}-\alpha_{\perp}\right)
-    \left(\bm{n}\cdot\bm{E}\right)^2
-  \end{equation}
-  を得る．電場を$y$方向に加えるとして$\bm{E}=(0,E)^\top$とし，$\bm{n}=(\cos\phi,\sin\phi)^\top$を用いると，
-  \begin{equation}
-    U_E(\phi)
-    =-pE\sin\phi
-    -\frac{E^2}{2}\alpha_{\perp}
-    -\frac{E^2}{2}\Delta\alpha\sin^2\phi
-  \end{equation}
-  となる．ただし$\Delta\alpha=\alpha_{\parallel}-\alpha_{\perp}$は分極異方性である．これを$\phi$で微分して
-  \begin{align}
-    \tau_E(\phi)
-     & =
-    -\frac{\partial U_E}{\partial\phi}
-    =pE\cos\phi+\Delta\alpha E^2\sin\phi\cos\phi \notag \\
-     & =
-    pE\cos\phi
-    \left(
-    1+\Delta\alpha\frac{E}{p}\sin\phi
-    \right)
-    \label{eq:electric-torque}
-  \end{align}
-  を得る．第1項は電場の強さ$E$に比例する永久双極子由来のトルクであり，棒を電場方向（$y$軸方向）に揃えようとする．第2項は$E^2$に比例する誘起双極子由来のトルクである．
-
-  本研究では，棒が長軸に垂直な方向により強く分極する場合，すなわち分極異方性が負（$\Delta\alpha<0$）の場合に着目する．このとき式\eqref{eq:electric-torque}は
-  \begin{equation}
-    \tau_E(\phi)
-    =pE\cos\phi
-    \left(
-    1-\frac{|\Delta\alpha|E}{p}\sin\phi
-    \right)
-    \label{eq:electric-torque-neg}
-  \end{equation}
-  と書ける．永久双極子の項は棒を電場方向（$\phi=\pi/2$）へ揃えようとするのに対し，誘起双極子の項は棒の長軸を電場に垂直な向き（$\phi=0$，すなわちチャネル軸方向）へ向けようとし，両者は競合する．その大小は無次元量$\frac{|\Delta\alpha|E}{p}$で決まる．
-
-  トルクのつり合い$\tau_E=0$を与える配向は$\cos\phi=0$（$\phi=\pm\pi/2$）と$\sin\phi=p/(|\Delta\alpha|E)$である．$\phi=\pi/2$まわりの線形安定性を調べると，
-  \begin{equation}
-    \left.\frac{\partial\tau_E}{\partial\phi}\right|_{\phi=\pi/2}
-    =E\left(|\Delta\alpha|E-p\right)
-  \end{equation}
-  となる．これが負となる$\frac{|\Delta\alpha|E}{p}<1$のとき，棒は電場方向に安定に配向する．一方，$\frac{|\Delta\alpha|E}{p}>1$では$\phi=\pi/2$は不安定となり，
-  \begin{equation}
-    \sin\phi_1=\frac{p}{|\Delta\alpha|E}<1
-    \label{eq:tilted-angle}
-  \end{equation}
-  を満たす傾いた配向$\phi_1$が安定となる．この配向では棒のチャネル横断方向（$y$方向）への張り出しが$l\sin\phi_1=lp/(|\Delta\alpha|E)<l$と小さくなる．したがって，最狭窄部の幅を$bl$とすると，$\frac{|\Delta\alpha|E}{p}>\frac{1}{b}$のとき棒は狭窄部を通り抜けやすくなると期待される．このように，電場は棒の配向分布を変化させることで狭窄チャネルの通過しやすさ，ひいては輸送量を制御すると考えられる．
-
-  \subsection{拡散係数}
-  棒状粒子の拡散係数には，円柱状粒子に対するTiradoとGarcia de la Torreの近似式\cite{tirado1979,tirado1980}を用いる．棒の長さを$l$，直径を$d$，アスペクト比を$p=l/d$とすると，バルク中での並進および回転拡散係数は
-  \begin{align}
-    D_{\parallel}(l)
-     & =
-    \frac{k_BT}{2\pi\eta l}
-    \left(\ln p+\nu_{\parallel}\right), \\
-    D_{\perp}(l)
-     & =
-    \frac{k_BT}{4\pi\eta l}
-    \left(\ln p+\nu_{\perp}\right),     \\
-    D_r(l)
-     & =
-    \frac{3k_BT}{\pi\eta l^3}
-    \left(\ln p+\delta_{\perp}\right)
-  \end{align}
-  と表される．ただし，
-  \begin{align}
-    \nu_{\parallel}
-     & =-0.207+\frac{0.980}{p}-\frac{0.133}{p^2}, \\
-    \nu_{\perp}
-     & =0.839+\frac{0.185}{p}+\frac{0.233}{p^2},  \\
-    \delta_{\perp}
-     & =-0.630+\frac{0.917}{p}-\frac{0.050}{p^2}
-  \end{align}
-  である．本研究では，先行研究の実験でチャネル内の局所拡散係数に約2倍の異方性が観測されていること\cite{yang2019}に基づき，並進拡散係数の比を
-  \begin{equation}
-    D_{\perp}= \frac{1}{2} D_{\parallel}
-    \label{eq:diffusion-ratio}
-  \end{equation}
-  として扱う．この仮定のもとで，実験室座標系での並進拡散テンソルは
-  \begin{align}
-    \mathbb{D}_{\mathrm{lab}}(\phi)
-     & =
-    \mathbb{R}(\phi)\mathbb{D}\mathbb{R}(\phi)^{-1} \notag \\
-     & =
-    \frac{D_{\parallel}}{4}
-    \begin{pmatrix}
-      3+\cos 2\phi & \sin 2\phi   \\
-      \sin 2\phi   & 3-\cos 2\phi
-    \end{pmatrix}
-    \label{eq:diffusion-lab}
-  \end{align}
-  と簡略化できる．この式により，棒の角度$\phi$に応じて，外力に対する移動度と熱揺らぎの大きさが変化する．
-
-  \subsection{無次元化}
-  数値計算では，長さをチャネル周期$L$で，時間を基準拡散係数$D_0$を用いて$L^2/D_0$で無次元化する．すなわち，
-  \begin{equation}
-    \widetilde{\bm{X}}=\frac{\bm{X}}{L},\qquad
-    \widetilde{t}=\frac{D_0}{L^2}t
-  \end{equation}
-  とする．また，
-  \begin{equation}
-    \widetilde{\mathbb{D}}=\frac{\mathbb{D}}{D_0},\qquad
-    \widetilde{D}_r=\frac{D_rL^2}{D_0},\qquad
-    \widetilde{\bm{F}}=\beta L\bm{F},\qquad
-    \widetilde{\tau}=\beta\tau
-  \end{equation}
-  と定義する．以降では表記を簡単にするためチルダを省略する．標準Wiener過程の増分$d\bm{W}$および$dW_r$を用いると，式\eqref{eq:langevin}は
-  \begin{equation}
-    \begin{cases}
-      d\bm{X}
-      =
-      \mathbb{D}_{\mathrm{lab}}(\phi)\bm{F}\,dt
-      +\mathbb{R}(\phi)\sqrt{2\mathbb{D}}\,d\bm{W}, \\[4pt]
-      d\phi
-      =
-      D_r\tau\,dt+\sqrt{2D_r}\,dW_r
-    \end{cases}
-    \label{eq:dimensionless-sde}
-  \end{equation}
-  となる．本研究の数値シミュレーションは，この無次元化された確率微分方程式に対して行う．
-
-  \subsection{数値積分}
-  式\eqref{eq:dimensionless-sde}を時間刻み$\Delta t$で離散化する．本研究の系では，実験室系の並進拡散テンソル$\mathbb{D}_{\mathrm{lab}}(\phi)$と並進雑音にかかる回転$\mathbb{R}(\phi)$が状態（角度$\phi$）に依存する乗法的な雑音となっている．単純なEuler--Maruyama法ではこれらを時間刻みの始点でのみ評価するため離散化誤差が大きくなりやすい．そこで先行研究\cite{yang2019}にならい，予測した状態で力・トルクおよび拡散テンソル・回転行列を再評価する予測子・修正子法を用いる．
-
-  数値計算では，各時刻の粒子状態を重心位置と配向角の組として管理する．時刻$t_n$における状態を$s_n=(\bm{X}_n,\phi_n)$とし，反発力や反発トルクを評価するときには，現在の状態から\ref{subsec:repulsion-boundary}節で述べる代表点の位置を計算する．各時間刻みで，$\bm{\eta}_t=(\eta_x,\eta_y)^\top$と$\eta_r$を，平均0，分散1の独立な標準正規乱数として生成する．まず現在状態$s_n$から予測点$s^\ast=(\bm{X}^\ast,\phi^\ast)$を
-  \begin{align}
-    \bm{X}^\ast
-     & =
-    \bm{X}_n
-    +\mathbb{D}_{\mathrm{lab}}(\phi_n)\bm{F}(s_n)\Delta t
-    +\mathbb{R}(\phi_n)\sqrt{2\mathbb{D}\Delta t}\,\bm{\eta}_t,
-    \label{eq:predictor-x} \\
-    \phi^\ast
-     & =
-    \phi_n
-    +D_r\tau(s_n)\Delta t
-    +\sqrt{2D_r\Delta t}\,\eta_r
-    \label{eq:predictor-phi}
-  \end{align}
-  により求める．次に，予測点$s^\ast$で力，トルク，拡散テンソル，および並進雑音の回転行列を再評価し，同じ乱数$\bm{\eta}_t,\eta_r$を用いて
-  \begin{align}
-    \bm{X}_{n+1}
-     & =
-    \bm{X}_n
-    +\mathbb{D}_{\mathrm{lab}}(\phi^\ast)\bm{F}(s^\ast)\Delta t
-    +\mathbb{R}(\phi^\ast)\sqrt{2\mathbb{D}\Delta t}\,\bm{\eta}_t,
-    \label{eq:corrector-x} \\
-    \phi_{n+1}
-     & =
-    \phi_n
-    +D_r\tau(s^\ast)\Delta t
-    +\sqrt{2D_r\Delta t}\,\eta_r
-    \label{eq:corrector-phi}
-  \end{align}
-  と更新する．
-  予測点および修正子で得られた候補状態が流路外に出た場合は，\ref{subsec:repulsion-boundary}節の境界処理で補正し，補正後の$(\bm{X}_{n+1},\phi_{n+1})$を次の時刻の状態として保存する．
-
-  \subsection{壁面からの反発力と境界処理}
-  \label{subsec:repulsion-boundary}
   壁面からの反発力とそれに伴うトルクを計算するため，棒を重心と，そこから左右対称に等間隔に置いた$2m$個の点を合わせた$2m+1$個の代表点で近似する．状態$s=(\bm{X},\phi)$が与えられたとき，代表点の位置を
   \begin{equation}
     \bm{r}_j=\bm{X}+\frac{jl}{2m}\bm{n},\qquad j=-m,\ldots,m
@@ -370,6 +191,232 @@
   \end{align}
   で与える．ここで，2次元ベクトルの外積は面外方向のスカラー成分を表す．
 
+  \subsection{電場によるトルク}
+  \label{subsec:electric-torque}
+  電場によるトルク$\tau_E$は，電場$\bm{E}$中での棒の静電エネルギー$U_E$を用いて$\tau_E=-\partial U_E/\partial\phi$と表される．棒が永久双極子モーメント$\bm{p}=p\bm{n}$と分極率テンソル$\hat{\alpha}$をもつとすると，静電エネルギーは
+  \begin{equation}
+    U_E=-\bm{p}\cdot\bm{E}-\frac12\bm{E}^\top\hat{\alpha}\bm{E}
+    \label{eq:electric-energy}
+  \end{equation}
+  と書ける．右辺第1項は永久双極子と電場の相互作用を，第2項は誘起双極子による寄与を表す．分極率テンソルは，棒の長軸方向の分極率$\alpha_{\parallel}$と長軸に垂直な方向の分極率$\alpha_{\perp}$を用いて
+  \begin{equation}
+    \hat{\alpha}
+    =\alpha_{\parallel}\bm{n}\bm{n}^\top
+    +\alpha_{\perp}\left(\bm{I}-\bm{n}\bm{n}^\top\right)
+  \end{equation}
+  と表されると仮定する．これを式\eqref{eq:electric-energy}に代入すると，
+  \begin{equation}
+    U_E
+    =-\bm{p}\cdot\bm{E}
+    -\frac12\alpha_{\perp}|\bm{E}|^2
+    -\frac12\left(\alpha_{\parallel}-\alpha_{\perp}\right)
+    \left(\bm{n}\cdot\bm{E}\right)^2
+  \end{equation}
+  を得る．電場を$y$方向に加えるとして$\bm{E}=(0,E)^\top$とし，$\bm{n}=(\cos\phi,\sin\phi)^\top$を用いると，
+  \begin{equation}
+    U_E(\phi)
+    =-pE\sin\phi
+    -\frac{E^2}{2}\alpha_{\perp}
+    -\frac{E^2}{2}\Delta\alpha\sin^2\phi
+  \end{equation}
+  となる．ただし$\Delta\alpha=\alpha_{\parallel}-\alpha_{\perp}$である．これより
+  \begin{align}
+    \tau_E(\phi)
+    = -\frac{\partial U_E}{\partial\phi}
+    = pE\cos\phi
+    \left(
+    1+\Delta\alpha\frac{E}{p}\sin\phi
+    \right)
+    \label{eq:electric-torque}
+  \end{align}
+  を得る．第1項は電場の強さ$E$に比例する永久双極子由来のトルクであり，棒を電場方向（$y$軸方向）に揃えようとする．第2項は$E^2$に比例する誘起双極子由来のトルクである．
+
+  本研究では，棒が長軸に垂直な方向により強く分極する場合，すなわち$\Delta\alpha<0$の場合に着目する．このとき式\eqref{eq:electric-torque}は
+  \begin{equation}
+    \tau_E(\phi)
+    =pE\cos\phi
+    \left(
+    1-\frac{|\Delta\alpha|E}{p}\sin\phi
+    \right)
+    \label{eq:electric-torque-neg}
+  \end{equation}
+  と書ける．永久双極子の項は棒を電場方向（$\phi=\frac{\pi}{2}$）へ揃えようとするのに対し，誘起双極子の項は棒の長軸を電場に垂直な向き（$\phi=0$）へ向けようとし，両者は競合する．その大小は無次元量$\frac{|\Delta\alpha|E}{p}$で決まる．
+
+  電場が棒の向きをどのように定めるかを調べるために，回転運動の決定論的なダイナミクスの安定性を解析する．式\eqref{eq:langevin}の角度に関する方程式から熱雑音と壁からの反発トルクを除き，広い断面で電場によるトルクのみが働く状況を考えると，棒の角度$\phi$は
+  \begin{equation}
+    \frac{d\phi}{dt}=\beta D_r\,\tau_E(\phi)
+    \label{eq:angle-dynamics}
+  \end{equation}
+  に従う．$\beta D_r>0$であるから，定常な向き（$\tau_E=0$を満たす角度$\phi_\ast$）の安定性は，その点での$\frac{\partial\tau_E}{\partial\phi}$の符号で決まる．実際，$\phi=\phi_\ast+\psi$と微小変位させると
+  \begin{equation}
+    \frac{d\psi}{dt}
+    =\beta D_r
+    \left.\frac{\partial\tau_E}{\partial\phi}\right|_{\phi_\ast}\psi
+  \end{equation}
+  となり，$\left.\frac{\partial\tau_E}{\partial\phi}\right|_{\phi_\ast}<0$のとき$\phi_\ast$は線形安定である．
+
+  式\eqref{eq:electric-torque-neg}より，トルクのつり合い$\tau_E=0$を与える角度は，$\cos\phi=0$すなわち$\phi=\pm\frac{\pi}{2}$（電場に平行な向き）と，
+  \begin{equation}
+    \sin\phi_1=\frac{p}{|\Delta\alpha|E}
+    \label{eq:tilted-angle}
+  \end{equation}
+  を満たす角度$\phi_1$である．後者は$\frac{|\Delta\alpha|E}{p}>1$のときにのみ存在する．トルクを$\phi$で微分すると
+  \begin{equation}
+    \frac{\partial\tau_E}{\partial\phi}
+    =-pE\sin\phi-|\Delta\alpha|E^2\cos2\phi
+    \label{eq:dtau-dphi}
+  \end{equation}
+  である．
+
+  まず電場に平行な向き$\phi=\frac{\pi}{2}$では，
+  \begin{equation}
+    \left.\frac{\partial\tau_E}{\partial\phi}\right|_{\phi=\pi/2}
+    =-pE+|\Delta\alpha|E^2
+    =pE\left(\frac{|\Delta\alpha|E}{p}-1\right)
+  \end{equation}
+  となり，$\frac{|\Delta\alpha|E}{p}<1$のとき負，すなわち安定である．一方$\phi=-\frac{\pi}{2}$では，
+  \begin{equation}
+    \left.\frac{\partial\tau_E}{\partial\phi}\right|_{\phi=-\pi/2}
+    =pE+|\Delta\alpha|E^2>0
+  \end{equation}
+  であり，つねに不安定である．したがって$\frac{|\Delta\alpha|E}{p}<1$の弱い電場では，棒は電場と平行な向き$\phi=\frac{\pi}{2}$に落ち着く．
+
+  次に，$\frac{|\Delta\alpha|E}{p}>1$のとき現れる傾いた向き$\phi_1$の安定性を調べる．式\eqref{eq:dtau-dphi}に$\sin\phi_1=p/(|\Delta\alpha|E)$と$\cos2\phi_1=1-2\sin^2\phi_1$を代入すると，
+  \begin{equation}
+    \left.\frac{\partial\tau_E}{\partial\phi}\right|_{\phi=\phi_1}
+    =\frac{p^2}{|\Delta\alpha|}
+    \left(1-\frac{|\Delta\alpha|^2E^2}{p^2}\right)
+  \end{equation}
+  を得る．$\frac{|\Delta\alpha|E}{p}>1$では括弧内が負となるので，$\phi_1$は線形安定である．このとき$\phi=\frac{\pi}{2}$は不安定となり，棒は電場方向から傾いた向き$\phi_1$をとる．
+
+  以上より，無次元量$\frac{|\Delta\alpha|E}{p}$が$1$を境に，棒の安定な向きは電場と平行な$\phi=\frac{\pi}{2}$から傾いた$\phi_1$へ移り変わる．傾いた向きでは，棒のチャネル横断方向（$y$軸方向）への射影が
+  \begin{equation}
+    l\sin\phi_1=\frac{lp}{|\Delta\alpha|E}<l
+    \label{eq:y-projection}
+  \end{equation}
+  と短くなる．したがって最狭窄部の幅を$bl$とすると，
+  \begin{equation}
+    \frac{p}{|\Delta\alpha|E}<b
+    \quad\Longleftrightarrow\quad
+    \frac{|\Delta\alpha|E}{p}>\frac{1}{b}
+  \end{equation}
+  のとき棒は狭窄部を通り抜けやすくなると期待される．このように，電場は棒の向きの分布を変化させることで狭窄チャネルの通過しやすさ，ひいては輸送量を制御すると考えられる．
+
+  \subsection{拡散係数}
+  棒状粒子の拡散係数には，円柱状粒子に対するTiradoとGarcia de la Torreの近似式\cite{tirado1979,tirado1980}を用いる．棒の長さを$l$，直径を$d$，アスペクト比を$\rho=l/d$とすると，バルク中での並進および回転拡散係数は
+  \begin{align}
+    D_{\parallel}(l)
+     & =
+    \frac{k_BT}{2\pi\eta l}
+    \left(\ln \rho+\nu_{\parallel}\right), \\
+    D_{\perp}(l)
+     & =
+    \frac{k_BT}{4\pi\eta l}
+    \left(\ln \rho+\nu_{\perp}\right),     \\
+    D_r(l)
+     & =
+    \frac{3k_BT}{\pi\eta l^3}
+    \left(\ln \rho+\delta_{\perp}\right)
+  \end{align}
+  と表される．ただし，$\nu_{\parallel},\nu_{\perp},\delta_{\perp}$はアスペクト比$\rho$の関数であり，
+  \begin{align}
+    \nu_{\parallel}
+     & =-0.207+\frac{0.980}{\rho}-\frac{0.133}{\rho^2}, \\
+    \nu_{\perp}
+     & =0.839+\frac{0.185}{\rho}+\frac{0.233}{\rho^2},  \\
+    \delta_{\perp}
+     & =-0.630+\frac{0.917}{\rho}-\frac{0.050}{\rho^2}
+  \end{align}
+  で与えられる．本研究では，先行研究の実験でチャネル内の局所拡散係数に約2倍の異方性が観測されていること\cite{yang2019}に基づき，並進拡散係数の比を
+  \begin{equation}
+    D_{\perp}= \frac{1}{2} D_{\parallel}
+    \label{eq:diffusion-ratio}
+  \end{equation}
+  として扱う．実験室座標系での並進拡散テンソルは棒の角度$\phi$に依存し，その具体形は数値シミュレーションの定式化とあわせて\ref{subsec:simulation}節で与える．
+
+  \subsection{数値シミュレーション}
+  \label{subsec:simulation}
+  本節では，以上の定式化に基づいて具体的にどのような数値計算を行うかを述べる．まず計算に用いる無次元化された確率微分方程式を与え，続いてその時間離散化（予測子・修正子法）と，粒子が流路外に出た場合の境界処理について説明する．
+
+  \subsubsection{無次元化と確率微分方程式}
+  数値計算では，長さをチャネル周期$L$で，時間を基準拡散係数$D_0$を用いて$L^2/D_0$で無次元化する．すなわち，
+  \begin{equation}
+    \widetilde{\bm{X}}=\frac{\bm{X}}{L},\qquad
+    \widetilde{t}=\frac{D_0}{L^2}t
+  \end{equation}
+  とする．また，
+  \begin{equation}
+    \widetilde{\mathbb{D}}=\frac{\mathbb{D}}{D_0},\qquad
+    \widetilde{D}_r=\frac{D_rL^2}{D_0},\qquad
+    \widetilde{\bm{F}}=\beta L\bm{F},\qquad
+    \widetilde{\tau}=\beta\tau
+  \end{equation}
+  と定義する．以降では表記を簡単にするためチルダを省略する．
+
+  並進運動は実験室座標系で記述するため，棒の角度$\phi$に依存する並進拡散テンソル
+  \begin{align}
+    \mathbb{D}_{\mathrm{lab}}(\phi)
+     & =
+    \mathbb{R}(\phi)\mathbb{D}\mathbb{R}(\phi)^{-1} \notag \\
+     & =
+    \frac{D_{\parallel}}{4}
+    \begin{pmatrix}
+      3+\cos 2\phi & \sin 2\phi   \\
+      \sin 2\phi   & 3-\cos 2\phi
+    \end{pmatrix}
+    \label{eq:diffusion-lab}
+  \end{align}
+  を用いる．ここで式\eqref{eq:diffusion-ratio}の異方性$D_{\perp}=\frac12 D_{\parallel}$を用いて簡略化した．この式により，棒の角度$\phi$に応じて，外力に対する移動度と熱揺らぎの大きさが変化する．標準Wiener過程の増分$d\bm{W}$および$dW_r$を用いると，式\eqref{eq:langevin}は無次元化された確率微分方程式
+  \begin{equation}
+    \begin{cases}
+      d\bm{X}
+      =
+      \mathbb{D}_{\mathrm{lab}}(\phi)\bm{F}\,dt
+      +\mathbb{R}(\phi)\sqrt{2\mathbb{D}}\,d\bm{W}, \\[4pt]
+      d\phi
+      =
+      D_r\tau\,dt+\sqrt{2D_r}\,dW_r
+    \end{cases}
+    \label{eq:dimensionless-sde}
+  \end{equation}
+  となる．本研究の数値シミュレーションは，この方程式に対して行う．
+
+  \subsubsection{時間離散化}
+  式\eqref{eq:dimensionless-sde}を時間刻み$\Delta t$で離散化する．本研究の系では，実験室系の並進拡散テンソル$\mathbb{D}_{\mathrm{lab}}(\phi)$と並進雑音にかかる回転$\mathbb{R}(\phi)$が状態（角度$\phi$）に依存する乗法的な雑音となっている．単純なEuler--Maruyama法ではこれらを時間刻みの始点でのみ評価するため離散化誤差が大きくなりやすい．そこで先行研究\cite{yang2019}にならい，予測した状態で力・トルクおよび拡散テンソル・回転行列を再評価する予測子・修正子法を用いる．
+
+  時刻$t_n$における状態を$s_n=(\bm{X}_n,\phi_n)$とし，反発力や反発トルクを評価するときには，現在の状態から式\eqref{eq:representative-points}の代表点の位置を計算する．各時間刻みで，$\bm{\eta}_t=(\eta_x,\eta_y)^\top$と$\eta_r$を，平均0，分散1の独立な標準正規乱数として生成する．まず現在状態$s_n$から予測点$s^\ast=(\bm{X}^\ast,\phi^\ast)$を
+  \begin{align}
+    \bm{X}^\ast
+     & =
+    \bm{X}_n
+    +\mathbb{D}_{\mathrm{lab}}(\phi_n)\bm{F}(s_n)\Delta t
+    +\mathbb{R}(\phi_n)\sqrt{2\mathbb{D}\Delta t}\,\bm{\eta}_t,
+    \label{eq:predictor-x} \\
+    \phi^\ast
+     & =
+    \phi_n
+    +D_r\tau(s_n)\Delta t
+    +\sqrt{2D_r\Delta t}\,\eta_r
+    \label{eq:predictor-phi}
+  \end{align}
+  により求める．次に，予測点$s^\ast$で力，トルク，拡散テンソル，および並進雑音の回転行列を再評価し，同じ乱数$\bm{\eta}_t,\eta_r$を用いて
+  \begin{align}
+    \bm{X}_{n+1}
+     & =
+    \bm{X}_n
+    +\mathbb{D}_{\mathrm{lab}}(\phi^\ast)\bm{F}(s^\ast)\Delta t
+    +\mathbb{R}(\phi^\ast)\sqrt{2\mathbb{D}\Delta t}\,\bm{\eta}_t,
+    \label{eq:corrector-x} \\
+    \phi_{n+1}
+     & =
+    \phi_n
+    +D_r\tau(s^\ast)\Delta t
+    +\sqrt{2D_r\Delta t}\,\eta_r
+    \label{eq:corrector-phi}
+  \end{align}
+  と更新する．
+
+  \subsubsection{流路外に出た場合の境界処理}
   反発力を用いても，有限の時間刻みでは予測点や修正子で得た候補点が流路外に出ることがある．そこで本研究では，境界外に出た候補状態を，現在位置側の壁に対して鏡映することで境界条件を満たすよう補正する．候補重心を$\bm{X}^q=(x^q,y^q)$とすると，$y^q>\omega(x^q)$なら上壁，$y^q<-\omega(x^q)$なら下壁の外側にあると判定する．上下壁を$\sigma_w\in\{+1,-1\}$を用いて
   \begin{equation}
     \bm{b}_{\sigma_w}(u)=\left(u,\sigma_w\omega(u)\right)
@@ -393,7 +440,7 @@
     \widehat{\phi}^q=2\theta-\phi^q
     \label{eq:reflected-angle}
   \end{equation}
-  と補正する．予測点$s^\ast$が境界外にある場合は，この鏡映補正を適用した状態で修正子段階の力と拡散テンソルを評価する．さらに，修正子で得た最終候補状態についても保存前に同じ補正を行う．
+  と補正する．予測点$s^\ast$が境界外にある場合は，この鏡映補正を適用した状態で修正子段階の力と拡散テンソルを評価する．さらに，修正子で得た最終候補状態についても保存前に同じ補正を行い，補正後の$(\bm{X}_{n+1},\phi_{n+1})$を次の時刻の状態として保存する．
 
   \section{実験}
 
@@ -416,15 +463,15 @@
   \begin{equation}
     \tilde{l}_0=6\times0.8\sigma
   \end{equation}
-  の棒（後述の$m=3$の棒に対応）に対して定める．$p_0=60\tilde{l}_0$として，
+  の棒（後述の$m=3$の棒に対応）に対して定める．$\rho_0=60\tilde{l}_0$として，
   \begin{equation}
     D_0=
     \frac{k_BT}{8\pi\eta L\tilde{l}_0}
     \left(
-    3\ln p_0+2\nu_{\parallel,0}+\nu_{\perp,0}
+    3\ln \rho_0+2\nu_{\parallel,0}+\nu_{\perp,0}
     \right)
   \end{equation}
-  を用いた．ここで，$\nu_{\parallel,0}$および$\nu_{\perp,0}$は$p=p_0$における$\nu_{\parallel}$および$\nu_{\perp}$の値である．この共通の$D_0$ですべての棒長を無次元化することで，棒長ごとに時間スケールが変わらないようにする．また，各棒長に対してアスペクト比を$p=60\tilde{l}$とした．これは，TiradoとGarcia de la Torreの近似式が妥当性をもつ範囲（おおむね$2<p<30$）に各棒のアスペクト比を収めるためである．
+  を用いた．ここで，$\nu_{\parallel,0}$および$\nu_{\perp,0}$は$\rho=\rho_0$における$\nu_{\parallel}$および$\nu_{\perp}$の値である．この共通の$D_0$ですべての棒長を無次元化することで，棒長ごとに時間スケールが変わらないようにする．また，各棒長に対してアスペクト比を$\rho=60\tilde{l}$とした．これは，TiradoとGarcia de la Torreの近似式が妥当性をもつ範囲（おおむね$2<\rho<30$）に各棒のアスペクト比を収めるためである．
 
   探索する棒長は，粒子の代表点数と対応させて
   \begin{equation}
@@ -468,59 +515,59 @@
   %%% 注意: 以下の図は予備走（各条件 N=1000 試行）の結果である．
   %%% 本走（計測量の節の N=3.0e4）の出力に差し替える場合は，
   %%% analysis/prepare_data.py を再実行すれば同じ図がそのまま再生成される．
-  本節では，前節の手順で得た数値計算の結果を示し，電場パラメータ$\left(\beta pE,\,\frac{|\Delta\alpha|E}{p}\right)$と棒長$(m)$が輸送量および配向分布に与える影響を議論する．以下では，記述を簡単にするため$\delta\equiv\frac{|\Delta\alpha|E}{p}$と書く．いずれの条件でも1周期の通過率は実質的に100\%であり，棒は外力によるドリフトで確実に1周期分を通過した．
+  本節では，前節の手順で得た数値計算の結果を示し，電場パラメータ$\left(\beta pE,\,\frac{|\Delta\alpha|E}{p}\right)$と棒長$(m)$が輸送量および棒の向きの分布に与える影響を議論する．以下では，記述を簡単にするため$\delta\equiv\frac{|\Delta\alpha|E}{p}$と書く．いずれの条件でも1周期の通過率は実質的に100\%であり，棒は外力によるドリフトで確実に1周期分を通過した．
 
   \subsubsection{輸送量のパラメータ依存性}
-  図\ref{fig:transport}に，平均速度$v=L/T_1$と有効拡散係数$D_{\mathrm{eff}}$の$\delta$依存性を，棒長$m$ごとに示す．まず，いずれの$(m,\beta pE)$においても$v$は$\delta$の増加とともに単調に増加する．これは，誘起双極子由来のトルクが棒を電場に垂直な向き（チャネル軸方向）へ傾け，棒の横断方向への張り出しを小さくするため，狭窄部を通り抜けやすくなることに対応する．
+  図\ref{fig:transport}に，平均速度$v=L/T_1$と有効拡散係数$D_{\mathrm{eff}}$の$\delta$依存性を，棒長$m$ごとに示す．まず，いずれの$(m,\beta pE)$においても$v$は$\delta$の増加とともに単調に増加する．これは，誘起双極子由来のトルクが棒を電場に垂直な向き（チャネル軸方向）へ傾け，棒の横断方向（$y$軸方向）への射影を小さくするため，狭窄部を通り抜けやすくなることに対応する．
 
-  一方，$\beta pE$の効果は$\delta$の大小で質的に異なる．$\delta\lesssim1$の領域では$\beta pE$が大きいほど$v$は小さく（例えば$m=3$，$\delta=1/3$では$\beta pE=0.5$で$v\simeq0.52$，$\beta pE=3$で$v\simeq0.29$），永久双極子が棒を電場方向（$\phi=\pi/2$）へ強く揃えて張り出しを最大化することで通過を妨げている．これに対し$\delta\gtrsim3$では大小関係が逆転ないし飽和する．これは式\eqref{eq:electric-torque-neg}における永久双極子項と誘起双極子項の競合の現れであり，両者の比$\delta$が$1$を境に棒の安定配向が変わる（式\eqref{eq:tilted-angle}）ことと整合する．
+  一方，$\beta pE$の効果は$\delta$の大小で質的に異なる．$\delta\lesssim1$の領域では$\beta pE$が大きいほど$v$は小さく（例えば$m=3$，$\delta=1/3$では$\beta pE=0.5$で$v\simeq0.52$，$\beta pE=3$で$v\simeq0.29$），永久双極子が棒を電場方向（$\phi=\pi/2$）へ強く揃えて$y$軸方向への射影を最大化することで通過を妨げている．これに対し$\delta\gtrsim3$では大小関係が逆転ないし飽和する．これは式\eqref{eq:electric-torque-neg}における永久双極子項と誘起双極子項の競合の現れであり，両者の比$\delta$が$1$を境に棒の安定な向きが変わる（式\eqref{eq:tilted-angle}）ことと整合する．
 
-  棒長依存性も顕著である．$m=6$の棒は$m=3$に比べて一様に遅く，$\delta$依存はより急峻である（$m=6$，$\beta pE=3$では$\delta=1/3$の$v\simeq0.15$から$\delta=10$の$v\simeq0.56$まで約3.8倍に増加する）．$m=3$の棒長は最狭窄部の幅とほぼ等しい（$l/2\approx\omega_{\min}$）のに対し，$m=6$ではその約2倍（$l/2\approx2\omega_{\min}$）であり，傾いた配向の張り出し$(l/2)\sin\phi_1=(l/2)/\delta$が最狭窄部に収まる条件$\delta\gtrsim(l/2)/\omega_{\min}$は，$m=3$で$\delta\gtrsim1$，$m=6$で$\delta\gtrsim2$となる．図\ref{fig:transport}で$v$が立ち上がる$\delta$がこの閾値とおおむね一致しており，\ref{subsec:electric-torque}節の幾何的な見積りを支持する．有効拡散係数$D_{\mathrm{eff}}$も同様に$\delta$とともに増大する傾向を示す．
+  棒長依存性も顕著である．$m=6$の棒は$m=3$に比べて一様に遅く，$\delta$依存はより急峻である（$m=6$，$\beta pE=3$では$\delta=1/3$の$v\simeq0.15$から$\delta=10$の$v\simeq0.56$まで約3.8倍に増加する）．$m=3$の棒長は最狭窄部の幅とほぼ等しい（$l/2\approx\omega_{\min}$）のに対し，$m=6$ではその約2倍（$l/2\approx2\omega_{\min}$）であり，傾いた向きの$y$軸方向への射影$(l/2)\sin\phi_1=(l/2)/\delta$が最狭窄部に収まる条件$\delta\gtrsim(l/2)/\omega_{\min}$は，$m=3$で$\delta\gtrsim1$，$m=6$で$\delta\gtrsim2$となる．図\ref{fig:transport}で$v$が立ち上がる$\delta$がこの閾値とおおむね一致しており，\ref{subsec:electric-torque}節の幾何的な見積りを支持する．有効拡散係数$D_{\mathrm{eff}}$も同様に$\delta$とともに増大する傾向を示す．
 
   \begin{figure}[tbp]
     \centering
     \input{analysis/fig_transport}
-    \caption{平均速度$v=L/T_1$（上段）と有効拡散係数$D_{\mathrm{eff}}$（下段）の$\delta=|\Delta\alpha|E/p$依存性．左列が$m=3$，右列が$m=6$．記号は永久双極子と熱エネルギーの比$\beta pE$を表す．誤差棒は初通過時間のブートストラップ標準誤差，破線は傾いた配向が最狭窄部に収まる幾何閾値（$m=3$で$\delta=1$，$m=6$で$\delta=2$）を示す．}
+    \caption{平均速度$v=L/T_1$（上段）と有効拡散係数$D_{\mathrm{eff}}$（下段）の$\delta=|\Delta\alpha|E/p$依存性．左列が$m=3$，右列が$m=6$．記号は永久双極子と熱エネルギーの比$\beta pE$を表す．誤差棒は初通過時間のブートストラップ標準誤差，破線は傾いた向きが最狭窄部に収まる幾何閾値（$m=3$で$\delta=1$，$m=6$で$\delta=2$）を示す．}
     \label{fig:transport}
   \end{figure}
 
-  \subsubsection{配向分布と通過機構}
-  上記の輸送量の変化が，電場による配向制御に由来することを直接確かめる．図\ref{fig:pphi}は，チャネルの広い断面における棒の配向分布$P(\phi)$である．$\delta=1/3$では$\phi=\pi/2$（電場方向，最大の張り出し）に鋭い単峰をもつのに対し，$\delta$を大きくすると峰は$\phi=0,\pi$（チャネル軸方向）へ移動して二峰化する．峰の位置は，式\eqref{eq:tilted-angle}の安定配向$\sin\phi_1=1/\delta$でよく説明される．
+  \subsubsection{棒の向きの分布と通過機構}
+  上記の輸送量の変化が，電場による棒の向きの制御に由来することを直接確かめる．図\ref{fig:pphi}は，チャネルの広い断面における棒の向きの分布$P(\phi)$である．$\delta=1/3$では$\phi=\pi/2$（電場方向，$y$軸方向への射影が最大）に鋭い単峰をもつのに対し，$\delta$を大きくすると峰は$\phi=0,\pi$（チャネル軸方向）へ移動して二峰化する．峰の位置は，式\eqref{eq:tilted-angle}の安定な向き$\sin\phi_1=1/\delta$でよく説明される．
 
-  この配向制御がチャネルに沿ってどう働くかを，図\ref{fig:xphi}の$(x,\phi)$占有マップ（各位置$x$での条件付き分布$P(\phi\,|\,x)$）に示す．$\delta=1/3$（上）では，棒は広い領域ではほぼ全域で$\phi=\pi/2$に揃うが，最狭窄部$x\approx0.81$（破線）でのみ$\phi=\pi/2$には存在できず，軸方向（$\phi\approx0,\pi$）へ強制的に向きを変えて通過する．これは狭窄部が配向に対する幾何学的な選別（実効的なエントロピー障壁）として働くことを示す．一方$\delta=10$（下）では，棒は全域で軸方向に傾いており，最狭窄部でも配向はほとんど乱されずに通過する．すなわち電場による傾きが障壁そのものを下げている．
+  この向きの制御がチャネルに沿ってどう働くかを，図\ref{fig:xphi}の$(x,\phi)$占有マップ（各位置$x$での条件付き分布$P(\phi\,|\,x)$）に示す．$\delta=1/3$（上）では，棒は広い領域ではほぼ全域で$\phi=\pi/2$に揃うが，最狭窄部$x\approx0.81$（破線）でのみ$\phi=\pi/2$には存在できず，軸方向（$\phi\approx0,\pi$）へ強制的に向きを変えて通過する．これは狭窄部が棒の向きに対する幾何学的な選別（実効的なエントロピー障壁）として働くことを示す．一方$\delta=10$（下）では，棒は全域で軸方向に傾いており，最狭窄部でも棒の向きはほとんど乱されずに通過する．すなわち電場による傾きが障壁そのものを下げている．
 
-  図\ref{fig:orientation}は，広い断面での占有重み付き$\langle|\sin\phi|\rangle$（横断方向への張り出し$l|\sin\phi|$の指標）の$\delta$依存性である．$\delta\gtrsim1$で$\langle|\sin\phi|\rangle$は理論曲線$\min(1,1/\delta)$に沿って減少し，また$\beta pE$が大きいほど小$\delta$側で$\pi/2$に強く揃って$\langle|\sin\phi|\rangle$が大きい．これらは図\ref{fig:transport}でみた$v$の振る舞いと整合する．
+  図\ref{fig:orientation}は，広い断面での占有重み付き$\langle|\sin\phi|\rangle$（横断方向（$y$軸方向）への射影$l|\sin\phi|$の指標）の$\delta$依存性である．$\delta\gtrsim1$で$\langle|\sin\phi|\rangle$は理論曲線$\min(1,1/\delta)$に沿って減少し，また$\beta pE$が大きいほど小$\delta$側で$\pi/2$に強く揃って$\langle|\sin\phi|\rangle$が大きい．これらは図\ref{fig:transport}でみた$v$の振る舞いと整合する．
 
   \begin{figure}[tbp]
     \centering
     \input{analysis/fig_pphi}
-    \caption{広い断面（$x\approx0.20$）における配向分布$P(\phi)$（$m=3$と$m=6$，いずれも$\beta pE=3$）．$\delta$が小さいと$\phi=\pi/2$（点線）に単峰，大きいと$\phi_1=\arcsin(1/\delta)$付近（軸方向）へ移動して二峰化する．}
+    \caption{広い断面（$x\approx0.20$）における棒の向きの分布$P(\phi)$（$m=3$と$m=6$，いずれも$\beta pE=3$）．$\delta$が小さいと$\phi=\pi/2$（点線）に単峰，大きいと$\phi_1=\arcsin(1/\delta)$付近（軸方向）へ移動して二峰化する．}
     \label{fig:pphi}
   \end{figure}
 
   \begin{figure}[tbp]
     \centering
     \input{analysis/fig_xphi}
-    \caption{$(x,\phi)$占有マップ（$m=6$，$\beta pE=3$）．色は各位置$x$での条件付き配向分布$P(\phi\,|\,x)$．破線は最狭窄部$x\approx0.81$，点線は$\phi=\pi/2$．$\delta=1/3$（上）では棒は広域で$\phi=\pi/2$に揃うが最狭窄部でのみ軸方向に選別され，$\delta=10$（下）では全域で軸方向に傾いて最狭窄部を乱されずに通過する．}
+    \caption{$(x,\phi)$占有マップ（$m=6$，$\beta pE=3$）．色は各位置$x$での条件付きの向きの分布$P(\phi\,|\,x)$．破線は最狭窄部$x\approx0.81$，点線は$\phi=\pi/2$．$\delta=1/3$（上）では棒は広域で$\phi=\pi/2$に揃うが最狭窄部でのみ軸方向に選別され，$\delta=10$（下）では全域で軸方向に傾いて最狭窄部を乱されずに通過する．}
     \label{fig:xphi}
   \end{figure}
 
   \begin{figure}[tbp]
     \centering
     \input{analysis/fig_orientation_sin}
-    \caption{広い断面における占有重み付き$\langle|\sin\phi|\rangle$の$\delta$依存性．破線は安定配向$\sin\phi_1=1/\delta$から定まる理論値$\min(1,1/\delta)$．}
+    \caption{広い断面における占有重み付き$\langle|\sin\phi|\rangle$の$\delta$依存性．破線は安定な向き$\sin\phi_1=1/\delta$から定まる理論値$\min(1,1/\delta)$．}
     \label{fig:orientation}
   \end{figure}
 
-  \subsubsection{配向と輸送の対応，および分離への示唆}
-  配向が輸送を支配していることを直接示すため，図\ref{fig:collapse}に全48条件の$\langle|\sin\phi|\rangle$と$v$の関係を散布した．異なる$(\beta pE,\delta)$から得た点が，棒長ごとに単一の単調減少の帯に乗っており，棒の張り出し（配向）が初通過時間を律速する主要因であることがわかる．同じ$\langle|\sin\phi|\rangle$でも$m=6$は$m=3$より遅く，長い棒ほど壁との相互作用や必要な配向の精度が増すことを反映している．
+  \subsubsection{棒の向きと輸送の対応，および分離への示唆}
+  棒の向きが輸送を支配していることを直接示すため，図\ref{fig:collapse}に全48条件の$\langle|\sin\phi|\rangle$と$v$の関係を散布した．異なる$(\beta pE,\delta)$から得た点が，棒長ごとに単一の単調減少の帯に乗っており，棒の$y$軸方向への射影（棒の向き）が初通過時間を律速する主要因であることがわかる．同じ$\langle|\sin\phi|\rangle$でも$m=6$は$m=3$より遅く，長い棒ほど壁との相互作用や必要な向きの精度が増すことを反映している．
 
   最後に，図\ref{fig:heatmap}にパラメータ平面$(\delta,\beta pE)$上での$v$をヒートマップとして示す．同一の動作点（同じ電場の強さと棒の電気的性質の比）であっても，棒長$m$によって$v$は大きく異なる．例えば$\delta$が大きく$\beta pE$も大きい領域では$m=3$と$m=6$で$v$が約2倍異なり，この速度（移動度）の差として粒子の幾何的・電気的性質を読み出せる．これは，電場の強さや向きを操作量として選ぶことで，電気的性質の異なる粒子を移動度の差で分離し，あるいは逆に移動度から電気的性質を推定できる可能性を示しており，本研究が目指す電気泳動的な分離・分析手法の基礎的な裏付けを与える．
 
   \begin{figure}[tbp]
     \centering
     \input{analysis/fig_collapse}
-    \caption{広い断面での$\langle|\sin\phi|\rangle$（張り出しの指標）と平均速度$v=L/T_1$の関係（全48条件）．棒長ごとに単調減少の帯に乗り，配向が輸送を律速することを示す．}
+    \caption{広い断面での$\langle|\sin\phi|\rangle$（$y$軸方向への射影の指標）と平均速度$v=L/T_1$の関係（全48条件）．棒長ごとに単調減少の帯に乗り，棒の向きが輸送を律速することを示す．}
     \label{fig:collapse}
   \end{figure}
 
@@ -535,9 +582,9 @@
 
   \section{結論}
 
-  本研究では，永久双極子モーメントと分極異方性をもつ誘電性棒状粒子が，周期的に狭窄したチャネル内を，チャネル軸方向の一定外力とそれに垂直な一様電場のもとで行うブラウン運動を，過減衰Langevin方程式に基づいて数値的に解析する枠組みを構築した．特に，電場によるトルクを静電エネルギーから導出し，分極異方性が負の場合には，無次元量$\frac{|\Delta\alpha|E}{p}$が$1$を超えると棒が電場方向から傾き，チャネル横断方向への張り出しが小さくなることを示した．これは，電場が棒の配向分布を変化させることで狭窄部の通過しやすさを制御しうることを示唆する．
+  本研究では，永久双極子モーメントと分極異方性をもつ誘電性棒状粒子が，周期的に狭窄したチャネル内を，チャネル軸方向の一定外力とそれに垂直な一様電場のもとで行うブラウン運動を，過減衰Langevin方程式に基づいて数値的に解析する枠組みを構築した．特に，電場によるトルクを静電エネルギーから導出し，分極異方性が負の場合には，無次元量$\frac{|\Delta\alpha|E}{p}$が$1$を超えると棒が電場方向から傾き，チャネル横断方向（$y$軸方向）への射影が小さくなることを示した．これは，電場が棒の向きの分布を変化させることで狭窄部の通過しやすさを制御しうることを示唆する．
 
-  % TODO: 数値計算の結果（v, D_eff, T1 のパラメータ依存性，配向分布など）を
+  % TODO: 数値計算の結果（v, D_eff, T1 のパラメータ依存性，棒の向きの分布など）を
   % 得たうえで，電場による移動度の変化と電気的性質に基づく分離の可能性につい
   % て記述する．
 
