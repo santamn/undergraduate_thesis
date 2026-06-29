@@ -448,12 +448,5 @@ INPUT ./analysis/fig_collapse.tex
 INPUT analysis/fig_collapse.tex
 INPUT analysis/data/collapse_m3.dat
 INPUT analysis/data/collapse_m6.dat
-INPUT ./analysis/fig_heatmap.tex
-INPUT ./analysis/fig_heatmap.tex
-INPUT ./analysis/fig_heatmap.tex
-INPUT ./analysis/fig_heatmap.tex
-INPUT analysis/fig_heatmap.tex
-INPUT analysis/data/heat_m3.dat
-INPUT analysis/data/heat_m6.dat
 INPUT /usr/local/texlive/2026/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT out/1029307812_∆√ Ã∏¶µÊ ÛπΩÒ2026.aux

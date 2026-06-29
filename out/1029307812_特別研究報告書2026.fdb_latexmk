@@ -1,11 +1,11 @@
 # Fdb version 4
-["dvipdf"] 1782709146.62836 "out/1029307812_特別研究報告書2026.dvi" "out/1029307812_特別研究報告書2026.pdf" "out/1029307812_特別研究報告書2026" 1782709147.05169 0
-  "out/1029307812_特別研究報告書2026.dvi" 1782709146.57878 582124 f434e01d1be14b81ac6460d1b022dd24 "latex"
+["dvipdf"] 1782716688.86034 "out/1029307812_特別研究報告書2026.dvi" "out/1029307812_特別研究報告書2026.pdf" "out/1029307812_特別研究報告書2026" 1782716689.28865 0
+  "out/1029307812_特別研究報告書2026.dvi" 1782716688.80972 547440 f569e4cd9b62a05c1e4a204a60f88f8c "latex"
   (generated)
   "out/1029307812_特別研究報告書2026.pdf"
   (rewritten before read)
-["latex"] 1782709140.24024 "/Users/miyake/Documents/undergraduate_thesis/1029307812_特別研究報告書2026.tex" "out/1029307812_特別研究報告書2026.dvi" "1029307812_特別研究報告書2026" 1782709147.04976 0
-  "/Users/miyake/Documents/undergraduate_thesis/1029307812_特別研究報告書2026.tex" 1782709134.88151 45997 32a2eaeb4b3b60315842223e3c7ad76c ""
+["latex"] 1782716683.02177 "/Users/miyake/Documents/undergraduate_thesis/1029307812_特別研究報告書2026.tex" "out/1029307812_特別研究報告書2026.dvi" "1029307812_特別研究報告書2026" 1782716689.28664 0
+  "/Users/miyake/Documents/undergraduate_thesis/1029307812_特別研究報告書2026.tex" 1782716676.49902 48395 93af8fd6a8dc21a2c7b1ffa45e2cd7d9 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/ptex-fonts/jis/jis.tfm" 1463434352 468 53f854284f6afa6c36aaa2d1090ecc12 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/ptex-fonts/jis/jisg.tfm" 1463434352 468 53f854284f6afa6c36aaa2d1090ecc12 ""
@@ -200,12 +200,10 @@
   "/usr/local/texlive/2026/texmf-dist/web2c/texmf.cnf" 1770478701 43630 e9fa012910491fe5ae08a72c3c2997a7 ""
   "/usr/local/texlive/2026/texmf-var/web2c/euptex/platex.fmt" 1777365955 3642391 7040d2ea437177f80e114abf6936d458 ""
   "/usr/local/texlive/2026/texmf.cnf" 1774209515 577 648cd9f92f9c0eac486f4c71c85cfbbe ""
-  "1029307812_特別研究報告書2026.tex" 1782709134.88151 45997 32a2eaeb4b3b60315842223e3c7ad76c ""
+  "1029307812_特別研究報告書2026.tex" 1782716676.49902 48395 93af8fd6a8dc21a2c7b1ffa45e2cd7d9 ""
   "ampbt.cls" 1703062911 7003 7686961efabbb305f97808ed6ce62f4c ""
   "analysis/data/collapse_m3.dat" 1782391386.7513 1083 3a2ca4dffc816b63a8eac94085f6301a ""
   "analysis/data/collapse_m6.dat" 1782391386.75141 1077 7951d906ddf5a657d9a8d14054b83675 ""
-  "analysis/data/heat_m3.dat" 1782391386.75153 1046 683db362e9508604d11c49128f6b980e ""
-  "analysis/data/heat_m6.dat" 1782391386.75164 1042 24ee649d41abeba073476ccb3d1d5285 ""
   "analysis/data/pphi_wide_m3_b3.dat" 1782391386.60267 2279 45216f4dc83b2c9f6236452f7d47c942 ""
   "analysis/data/pphi_wide_m6_b3.dat" 1782391386.72147 2285 819045d96d146cd4da7548083d7c873d ""
   "analysis/data/transport_m3.dat" 1782391386.51367 2120 262b87dfe63625200c434c9b6813fa28 ""
@@ -213,14 +211,13 @@
   "analysis/data/xphi_m6_b3_d0333333.dat" 1782391386.7722 83003 e30b7747542a466e21b084bbdb929b72 ""
   "analysis/data/xphi_m6_b3_d10.dat" 1782391386.77903 83003 ed78fa7b1ac019f65a158acc8d4e0f50 ""
   "analysis/fig_collapse.tex" 1782387244.17624 955 e5674572bdd32293c9d709ca47bbafdd ""
-  "analysis/fig_heatmap.tex" 1782461867.20112 1531 f4fc7cb8a6c23ad7dd3846b5da89604b ""
   "analysis/fig_orientation_sin.tex" 1782461701.95193 1461 c7055030bf90bdcc3f516a4f6eb914bc ""
   "analysis/fig_pphi.tex" 1782461781.41212 2023 7bf5ce9f7979c87fe251d6e2fa235738 ""
   "analysis/fig_transport.tex" 1782461701.56016 1472 272d764484a0c47124502c87b8acc31a ""
   "analysis/fig_xphi.tex" 1782461702.41864 1868 c624f5dc202f71c91861d4d11caf2e98 ""
   "analysis/figstyle.tex" 1782461702.57972 3700 ce939b23961231c76019505cf2c77d14 ""
-  "out/1029307812_特別研究報告書2026.aux" 1782709146.57721 6923 411e99d4edb3642864a92d9a0b4b014b "latex"
-  "out/1029307812_特別研究報告書2026.toc" 1782709146.57873 1525 46606ea841898f2af1a8fce57969aaa6 ""
+  "out/1029307812_特別研究報告書2026.aux" 1782716688.80801 7181 d3bde5f44fd88d48cbc9d092cf85b06c "latex"
+  "out/1029307812_特別研究報告書2026.toc" 1782716688.80965 1526 768fe0af323b9d1db88cfa075027e967 ""
   (generated)
   "out/1029307812_特別研究報告書2026.aux"
   "out/1029307812_特別研究報告書2026.dvi"
