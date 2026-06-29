@@ -1,5 +1,6 @@
 %%% 特別研究報告書サンプル
 \documentclass[dvipdfmx]{ampbt}
+\usepackage{here}
 %%% クラスオプション：
 %%% chapter: \chapterコマンドを使用可能にする（jsbook (report) を使う）．
 %%% その他 jsclasses に指定可能なオプションが指定できます（そのまま渡される）．
@@ -84,8 +85,6 @@
   本研究の狙いは，横電場下での双極子モーメントのエネルギー$pE$と誘起双極子モーメントと永久双極子モーメントの比$\frac{\Delta\alpha E}{p}$が，棒の角度分布と輸送量に与える影響を明らかにすることである．これにより，電場を用いて電気的性質の異なる粒子をより分けたり，逆に粒子の移動度からその電気的性質を推定したりするための，電気泳動的な分離・分析手法の基礎的な知見を与えることを目指す．
 
   {\color{red}コメント：ここでは，$\beta pE$と$\frac{\Delta\alpha E}{p}$は，まだ書かなくてもいいのではないか．書く場合は，$p$や$E$などを，どこかで定義する必要が有る．}
-
-
 
   \section{手法}
   本研究では，周期的に幅が変化する2次元チャネル内を運動する誘電性棒状粒子を対象とする．棒の重心位置と角度に関する過減衰Langevin方程式を確率微分方程式として定式化し，これを数値的に解くことで粒子の運動と輸送量を解析する．以下，流路(チャネル軸)に沿った軸を$x$軸，それに垂直な軸を$y$軸とする$(x,y)$座標系を用いる．粒子が運動できる領域は，
@@ -531,7 +530,7 @@
   %%% 注意: 以下の図は予備走（各条件 N=1000 試行）の結果である．
   %%% 本走（計測量の節の N=3.0e4）の出力に差し替える場合は，
   %%% analysis/prepare_data.py を再実行すれば同じ図がそのまま再生成される．
-  本節では，前節の手順で得た数値計算の結果を示し，電場パラメータ$\left(\beta pE,\,\frac{|\Delta\alpha|E}{p}\right)$と棒長$(m)$が輸送量および棒の向きの分布に与える影響を議論する．以下では，記述を簡単にするため$\delta\equiv\frac{|\Delta\alpha|E}{p}$と書く．いずれの条件でも1周期の通過率は実質的に100\%であり，棒は外力によるドリフトで確実に1周期分を通過した．
+  本節では，前節の手順で得た数値計算の結果を示し，電場パラメータ$\left(\beta pE,\,\frac{|\Delta\alpha|E}{p}\right)$と棒長$(m)$が輸送量および棒の向きの分布に与える影響を議論する．以下では，記述を簡単にするため$\delta\equiv\frac{|\Delta\alpha|E}{p}$と書く．
 
   \subsubsection{輸送量のパラメータ依存性}
   図\ref{fig:transport}に，平均速度$v=L/T_1$と有効拡散係数$D_{\mathrm{eff}}$の$\delta$依存性を，棒長$m$ごとに示す．まず，いずれの$(m,\beta pE)$においても$v$は$\delta$の増加とともに単調に増加する．これは，誘起双極子由来のトルクが棒を電場に垂直な向き（チャネル軸方向）へ傾け，棒の横断方向（$y$軸方向）への射影を小さくするため，狭窄部を通り抜けやすくなることに対応する．
@@ -540,7 +539,7 @@
 
   棒長依存性も顕著である．$m=6$の棒は$m=3$に比べて一様に遅く，$\delta$依存はより急峻である（$m=6$，$\beta pE=3$では$\delta=1/3$の$v\simeq0.15$から$\delta=10$の$v\simeq0.56$まで約3.8倍に増加する）．$m=3$の棒長は最狭窄部の幅とほぼ等しい（$l/2\approx\omega_{\min}$）のに対し，$m=6$ではその約2倍（$l/2\approx2\omega_{\min}$）であり，傾いた向きの$y$軸方向への射影$(l/2)\sin\phi_1=(l/2)/\delta$が最狭窄部に収まる条件$\delta\gtrsim(l/2)/\omega_{\min}$は，$m=3$で$\delta\gtrsim1$，$m=6$で$\delta\gtrsim2$となる．図\ref{fig:transport}で$v$が立ち上がる$\delta$がこの閾値とおおむね一致しており，\ref{subsec:electric-torque}節の幾何的な見積りを支持する．有効拡散係数$D_{\mathrm{eff}}$も同様に$\delta$とともに増大する傾向を示す．
 
-  \begin{figure}[tbp]
+  \begin{figure}[H]
     \centering
     \input{analysis/fig_transport}
     \caption{平均速度$v=L/T_1$（上段）と有効拡散係数$D_{\mathrm{eff}}$（下段）の$\delta=|\Delta\alpha|E/p$依存性．左列が$m=3$，右列が$m=6$．記号は永久双極子と熱エネルギーの比$\beta pE$を表す．誤差棒は初通過時間のブートストラップ標準誤差，破線は傾いた向きが最狭窄部に収まる幾何閾値（$m=3$で$\delta=1$，$m=6$で$\delta=2$）を示す．}
@@ -554,21 +553,21 @@
 
   図\ref{fig:orientation}は，広い断面での占有重み付き$\langle|\sin\phi|\rangle$（横断方向（$y$軸方向）への射影$l|\sin\phi|$の指標）の$\delta$依存性である．$\delta\gtrsim1$で$\langle|\sin\phi|\rangle$は理論曲線$\min(1,1/\delta)$に沿って減少し，また$\beta pE$が大きいほど小$\delta$側で$\pi/2$に強く揃って$\langle|\sin\phi|\rangle$が大きい．これらは図\ref{fig:transport}でみた$v$の振る舞いと整合する．
 
-  \begin{figure}[tbp]
+  \begin{figure}[H]
     \centering
     \input{analysis/fig_pphi}
     \caption{広い断面（$x\approx0.20$）における棒の向きの分布$P(\phi)$（$m=3$と$m=6$，いずれも$\beta pE=3$）．$\delta$が小さいと$\phi=\pi/2$（点線）に単峰，大きいと$\phi_1=\arcsin(1/\delta)$付近（軸方向）へ移動して二峰化する．}
     \label{fig:pphi}
   \end{figure}
 
-  \begin{figure}[tbp]
+  \begin{figure}[H]
     \centering
     \input{analysis/fig_xphi}
     \caption{$(x,\phi)$占有マップ（$m=6$，$\beta pE=3$）．色は各位置$x$での条件付きの向きの分布$P(\phi\,|\,x)$．破線は最狭窄部$x\approx0.81$，点線は$\phi=\pi/2$．$\delta=1/3$（上）では棒は広域で$\phi=\pi/2$に揃うが最狭窄部でのみ軸方向に選別され，$\delta=10$（下）では全域で軸方向に傾いて最狭窄部を乱されずに通過する．}
     \label{fig:xphi}
   \end{figure}
 
-  \begin{figure}[tbp]
+  \begin{figure}[H]
     \centering
     \input{analysis/fig_orientation_sin}
     \caption{広い断面における占有重み付き$\langle|\sin\phi|\rangle$の$\delta$依存性．破線は安定な向き$\sin\phi_1=1/\delta$から定まる理論値$\min(1,1/\delta)$．}
@@ -580,14 +579,14 @@
 
   最後に，図\ref{fig:heatmap}にパラメータ平面$(\delta,\beta pE)$上での$v$をヒートマップとして示す．同一の動作点（同じ電場の強さと棒の電気的性質の比）であっても，棒長$m$によって$v$は大きく異なる．例えば$\delta$が大きく$\beta pE$も大きい領域では$m=3$と$m=6$で$v$が約2倍異なり，この速度（移動度）の差として粒子の幾何的・電気的性質を読み出せる．これは，電場の強さや向きを操作量として選ぶことで，電気的性質の異なる粒子を移動度の差で分離し，あるいは逆に移動度から電気的性質を推定できる可能性を示しており，本研究が目指す電気泳動的な分離・分析手法の基礎的な裏付けを与える．
 
-  \begin{figure}[tbp]
+  \begin{figure}[H]
     \centering
     \input{analysis/fig_collapse}
     \caption{広い断面での$\langle|\sin\phi|\rangle$（$y$軸方向への射影の指標）と平均速度$v=L/T_1$の関係（全48条件）．棒長ごとに単調減少の帯に乗り，棒の向きが輸送を律速することを示す．}
     \label{fig:collapse}
   \end{figure}
 
-  \begin{figure}[tbp]
+  \begin{figure}[H]
     \centering
     \input{analysis/fig_heatmap}
     \caption{パラメータ平面$(\delta,\beta pE)$上の平均速度$v=L/T_1$（左$m=3$，右$m=6$）．同じ動作点でも棒長によって$v$が分かれることが，移動度の差による分離の動作マップを与える．}

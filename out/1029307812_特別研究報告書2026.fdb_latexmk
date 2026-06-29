@@ -1,11 +1,11 @@
 # Fdb version 4
-["dvipdf"] 1782706057.72645 "out/1029307812_特別研究報告書2026.dvi" "out/1029307812_特別研究報告書2026.pdf" "out/1029307812_特別研究報告書2026" 1782706058.19151 0
-  "out/1029307812_特別研究報告書2026.dvi" 1782706057.67655 582124 274f521579cf384bb5c0f802c6531d49 "latex"
+["dvipdf"] 1782709146.62836 "out/1029307812_特別研究報告書2026.dvi" "out/1029307812_特別研究報告書2026.pdf" "out/1029307812_特別研究報告書2026" 1782709147.05169 0
+  "out/1029307812_特別研究報告書2026.dvi" 1782709146.57878 582124 f434e01d1be14b81ac6460d1b022dd24 "latex"
   (generated)
   "out/1029307812_特別研究報告書2026.pdf"
   (rewritten before read)
-["latex"] 1782706051.74667 "/Users/miyake/Documents/undergraduate_thesis/1029307812_特別研究報告書2026.tex" "out/1029307812_特別研究報告書2026.dvi" "1029307812_特別研究報告書2026" 1782706058.18958 0
-  "/Users/miyake/Documents/undergraduate_thesis/1029307812_特別研究報告書2026.tex" 1782706051.48936 45993 2dbeda0203942f34a2f9dca18b21cb0b ""
+["latex"] 1782709140.24024 "/Users/miyake/Documents/undergraduate_thesis/1029307812_特別研究報告書2026.tex" "out/1029307812_特別研究報告書2026.dvi" "1029307812_特別研究報告書2026" 1782709147.04976 0
+  "/Users/miyake/Documents/undergraduate_thesis/1029307812_特別研究報告書2026.tex" 1782709134.88151 45997 32a2eaeb4b3b60315842223e3c7ad76c ""
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/ptex-fonts/jis/jis.tfm" 1463434352 468 53f854284f6afa6c36aaa2d1090ecc12 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/tfm/ptex-fonts/jis/jisg.tfm" 1463434352 468 53f854284f6afa6c36aaa2d1090ecc12 ""
@@ -167,6 +167,7 @@
   "/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsmath.sty" 1761946296 88471 b1bb09142edddebd46ba986341b867bd ""
   "/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsopn.sty" 1748806692 4474 c510a88aa5f51b8c773b50a7ee92befd ""
   "/usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amstext.sty" 1748806692 2444 9983e1d0683f102e3b190c64a49313aa ""
+  "/usr/local/texlive/2026/texmf-dist/tex/latex/float/float.sty" 1137110151 6749 16d2656a1984957e674b149555f1ea1d ""
   "/usr/local/texlive/2026/texmf-dist/tex/latex/geometry/geometry.sty" 1772916678 41904 7711079366884e0d15963c9d40019853 ""
   "/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-cfg/color.cfg" 1459978653 1213 620bba36b25224fa9b7e1ccb4ecb76fd ""
   "/usr/local/texlive/2026/texmf-dist/tex/latex/graphics-cfg/graphics.cfg" 1465944070 1224 978390e9c2234eab29404bc21b268d1e ""
@@ -176,6 +177,7 @@
   "/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/keyval.sty" 1748806692 2671 d9941f4bf4750e9b0603c9a2ec54693b ""
   "/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/mathcolor.ltx" 1667332637 2885 9c645d672ae17285bba324998918efd8 ""
   "/usr/local/texlive/2026/texmf-dist/tex/latex/graphics/trig.sty" 1748806692 4023 e66acf578d6b564c4670fb57ff336a7a ""
+  "/usr/local/texlive/2026/texmf-dist/tex/latex/here/here.sty" 1258935436 439 d908692e0f19922874ccfe2bf35addc7 ""
   "/usr/local/texlive/2026/texmf-dist/tex/latex/l3backend/l3backend-dvipdfmx.def" 1761248321 30997 166d52717c8599ca9c4d165366d3edae ""
   "/usr/local/texlive/2026/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty" 1601326656 1090 bae35ef70b3168089ef166db3e66f5b2 ""
   "/usr/local/texlive/2026/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty" 1673816307 373 00b204b1d7d095b892ad31a7494b0373 ""
@@ -198,7 +200,7 @@
   "/usr/local/texlive/2026/texmf-dist/web2c/texmf.cnf" 1770478701 43630 e9fa012910491fe5ae08a72c3c2997a7 ""
   "/usr/local/texlive/2026/texmf-var/web2c/euptex/platex.fmt" 1777365955 3642391 7040d2ea437177f80e114abf6936d458 ""
   "/usr/local/texlive/2026/texmf.cnf" 1774209515 577 648cd9f92f9c0eac486f4c71c85cfbbe ""
-  "1029307812_特別研究報告書2026.tex" 1782706051.48936 45993 2dbeda0203942f34a2f9dca18b21cb0b ""
+  "1029307812_特別研究報告書2026.tex" 1782709134.88151 45997 32a2eaeb4b3b60315842223e3c7ad76c ""
   "ampbt.cls" 1703062911 7003 7686961efabbb305f97808ed6ce62f4c ""
   "analysis/data/collapse_m3.dat" 1782391386.7513 1083 3a2ca4dffc816b63a8eac94085f6301a ""
   "analysis/data/collapse_m6.dat" 1782391386.75141 1077 7951d906ddf5a657d9a8d14054b83675 ""
@@ -217,8 +219,8 @@
   "analysis/fig_transport.tex" 1782461701.56016 1472 272d764484a0c47124502c87b8acc31a ""
   "analysis/fig_xphi.tex" 1782461702.41864 1868 c624f5dc202f71c91861d4d11caf2e98 ""
   "analysis/figstyle.tex" 1782461702.57972 3700 ce939b23961231c76019505cf2c77d14 ""
-  "out/1029307812_特別研究報告書2026.aux" 1782706057.6749 6923 b5ecca34bfd30f57555eb63a92cfdf4d "latex"
-  "out/1029307812_特別研究報告書2026.toc" 1782706057.67649 1525 2e3af082c64e5bf7496f8b2e16a92637 ""
+  "out/1029307812_特別研究報告書2026.aux" 1782709146.57721 6923 411e99d4edb3642864a92d9a0b4b014b "latex"
+  "out/1029307812_特別研究報告書2026.toc" 1782709146.57873 1525 46606ea841898f2af1a8fce57969aaa6 ""
   (generated)
   "out/1029307812_特別研究報告書2026.aux"
   "out/1029307812_特別研究報告書2026.dvi"

@@ -41,6 +41,10 @@ INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/graphics-def/dvipdfmx.def
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/graphics-def/dvipdfmx.def
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/graphics-def/dvipdfmx.def
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/here/here.sty
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/here/here.sty
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsmath.sty
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsmath.sty
 INPUT /usr/local/texlive/2026/texmf-dist/tex/latex/amsmath/amsopn.sty
